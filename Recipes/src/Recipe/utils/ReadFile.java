@@ -9,6 +9,7 @@ import java.util.List;
 public class ReadFile
 {
     private static final String recipeFileName = "recipes.txt";
+    private static final String userFileName = "users.txt";
 
     public static void ReadRecipeFile()
     {
@@ -47,6 +48,27 @@ public class ReadFile
                     appetizer = new Appetizer(name, numDiners, preparation, ingredients, calories,
                             difficultyLevel, specialDiet, publicationDate, preparationTime,
                             author, servingTemperature, culturalOrigin);
+                }
+
+
+            }
+        } catch (IOException fileError) {
+            System.err.println("Error reading file: " + fileError.getMessage());
+        }
+    }
+
+    public static void ReadUsersFile()
+    {
+
+        try (BufferedReader inputFile = new BufferedReader(new FileReader(new File(userFileName)))) {
+            String line;
+            while ((line = inputFile.readLine()) != null)
+            {
+                String[] recipeData = line.split(";");
+                //aqui va el invitado
+                if(recipeData.length == 4)
+                {
+                    //aqui va el autor y el admin
                 }
 
 
