@@ -5,7 +5,8 @@ public class Main
 {
     public static void main(String[] args)
     {
-        OptionsMenu optionUser;
+        LoginOptions optionUser;
+        AppMenuOptions appOption;
         do {
             optionUser = Menu.MenuLogIn();
             switch (optionUser)
@@ -29,7 +30,7 @@ public class Main
                 default:
                     System.out.println("Invalid option selected.");
             }
-        } while(optionUser != OptionsMenu.EXIT);
+        } while(optionUser != LoginOptions.EXIT);
 
     }
 }
