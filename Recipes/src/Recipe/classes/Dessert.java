@@ -9,12 +9,11 @@ public class Dessert extends Recipe
     private int restingTime;
     private int bakingTime;
     private int servingTemperature;
-    private DessertType dessertType;
+
 
     public Dessert(String name, int numDiners, String preparation, List<Ingredient> ingredients, float calories,
                    char difficultyLevel, SpecialDiets specialDiet, LocalDate publicationDate, int preparationTime,
-                   User author, boolean baked, int restingTime, int bakingTime, int servingTemperature,
-                   DessertType dessertType)
+                   User author, boolean baked, int restingTime, int bakingTime, int servingTemperature)
     {
         super(name, numDiners, preparation, ingredients, calories, difficultyLevel,
                 specialDiet, publicationDate, preparationTime, author);
@@ -22,7 +21,7 @@ public class Dessert extends Recipe
         this.restingTime = restingTime;
         this.bakingTime = bakingTime;
         this.servingTemperature = servingTemperature;
-        this.dessertType = dessertType;
+
     }
 
     public boolean isBaked() {
@@ -57,11 +56,4 @@ public class Dessert extends Recipe
         this.servingTemperature = servingTemperature;
     }
 
-    public DessertType getDessertType() {
-        return dessertType;
-    }
-
-    public void setDessertType(DessertType dessertType) {
-        this.dessertType = dessertType;
-    }
 }

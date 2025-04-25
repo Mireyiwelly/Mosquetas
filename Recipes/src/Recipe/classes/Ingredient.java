@@ -4,6 +4,7 @@ public class Ingredient
 {
     private String name;
     private int number;
+    //no se que es lo de unidad
     private String unit;
 
     public Ingredient(String name, int number, String unit) {
