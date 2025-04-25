@@ -3,6 +3,7 @@ package Recipe.classes;
 import java.time.LocalDate;
 import java.util.List;
 
+
 abstract public class Recipe
 {
     protected String name;
