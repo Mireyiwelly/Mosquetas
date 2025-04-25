@@ -15,10 +15,10 @@ public class Author extends User
      * Constructor for Author class.
      * @param name the name of the author
      * @param numRecipes the number of recipes created by the author
-     * @param createdRecipes the list of recipes created by the author
+
      * @param password the password of the author
      */
-    public Author(String name, int numRecipes, List<Recipe> createdRecipes,
+    public Author(String name, int numRecipes,
                   String password)
     {
         super(name);
