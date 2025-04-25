@@ -9,6 +9,8 @@ import java.util.List;
 public class Author extends User
 {
     protected String password;
+    protected int numRecipes;
+    protected List<Recipe> createdRecipes;
 
     /**
      * Constructor for Author class.
@@ -20,8 +22,10 @@ public class Author extends User
     public Author(String name, int numRecipes, List<Recipe> createdRecipes,
                   String password)
     {
-        super(name, numRecipes, createdRecipes);
+        super(name);
         this.password = password;
+        this.numRecipes = numRecipes;
+        this.createdRecipes = createdRecipes;
     }
 
     /**

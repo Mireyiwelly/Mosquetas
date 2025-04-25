@@ -15,14 +15,11 @@ abstract public class User
     /**
      * Constructor for User class.
      * @param name the name of the user
-     * @param numRecipes the number of recipes created by the user
-     * @param createdRecipes the list of recipes created by the user
      */
-    public User(String name, int numRecipes, List<Recipe> createdRecipes)
+    public User(String name)
     {
         this.name = name;
-        this.numRecipes = numRecipes;
-        this.createdRecipes = createdRecipes;
+
     }
 
     /**
