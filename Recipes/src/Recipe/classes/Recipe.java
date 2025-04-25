@@ -1,5 +1,6 @@
 package Recipe.classes;
 
+import java.time.LocalDate;
 import java.util.List;
 
 abstract public class Recipe
@@ -8,5 +9,105 @@ abstract public class Recipe
     protected int numDiners;
     protected String preparation;
     protected List<Ingredient> ingredients;
+    protected float calories;
+    protected char difficultyLevel;
+    protected SpecialDiets specialDiet;
+    protected LocalDate publicationDate;
+    protected int preparationTime;
+    protected User author;
 
+    public Recipe(String name, int numDiners, String preparation, List<Ingredient> ingredients, float calories,
+                  char difficultyLevel, SpecialDiets specialDiet, LocalDate publicationDate,
+                  int preparationTime, User author) {
+        this.name = name;
+        this.numDiners = numDiners;
+        this.preparation = preparation;
+        this.ingredients = ingredients;
+        this.calories = calories;
+        this.difficultyLevel = difficultyLevel;
+        this.specialDiet = specialDiet;
+        this.publicationDate = publicationDate;
+        this.preparationTime = preparationTime;
+        this.author = author;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getNumDiners() {
+        return numDiners;
+    }
+
+    public void setNumDiners(int numDiners) {
+        this.numDiners = numDiners;
+    }
+
+    public String getPreparation() {
+        return preparation;
+    }
+
+    public void setPreparation(String preparation) {
+        this.preparation = preparation;
+    }
+
+    public float getCalories() {
+        return calories;
+    }
+
+    public void setCalories(float calories) {
+        this.calories = calories;
+    }
+
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public char getDifficultyLevel() {
+        return difficultyLevel;
+    }
+
+    public void setDifficultyLevel(char difficultyLevel) {
+        this.difficultyLevel = difficultyLevel;
+    }
+
+    public SpecialDiets getSpecialDiet() {
+        return specialDiet;
+    }
+
+    public void setSpecialDiet(SpecialDiets specialDiet) {
+        this.specialDiet = specialDiet;
+    }
+
+    public LocalDate getPublicationDate() {
+        return publicationDate;
+    }
+
+    public void setPublicationDate(LocalDate publicationDate) {
+        this.publicationDate = publicationDate;
+    }
+
+    public int getPreparationTime() {
+        return preparationTime;
+    }
+
+    public void setPreparationTime(int preparationTime) {
+        this.preparationTime = preparationTime;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
+    }
 }
