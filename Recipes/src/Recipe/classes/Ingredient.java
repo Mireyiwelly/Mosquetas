@@ -1,4 +1,4 @@
-package classes;
+package Recipe.classes;
 
 public class Ingredient
 {

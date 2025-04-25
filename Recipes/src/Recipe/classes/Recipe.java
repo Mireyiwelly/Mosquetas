@@ -1,4 +1,4 @@
-package classes;
+package Recipe.classes;
 
 import java.util.List;
 
