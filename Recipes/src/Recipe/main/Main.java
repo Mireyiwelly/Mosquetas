@@ -1,4 +1,4 @@
-package main;
+package Recipe.main;
 
 public class Main
 {
