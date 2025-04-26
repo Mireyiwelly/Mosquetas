@@ -62,4 +62,13 @@ public class Author extends User
     {
         this.numRecipes = numRecipes;
     }
+
+
+    @Override
+    public String toString()
+    {
+        return super.toString() + "\n" +
+                "Password: " + password + "\n" +
+                "Number of Recipes: " + numRecipes;
+    }
 }

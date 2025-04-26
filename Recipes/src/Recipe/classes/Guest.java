@@ -35,4 +35,10 @@ public class Guest extends User
     {
         this.name = name;
     }
+
+    @Override
+    public String toString()
+    {
+        return super.toString();
+    }
 }
