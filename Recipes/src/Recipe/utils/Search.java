@@ -5,6 +5,8 @@ import java.time.LocalDate;
 
 public class Search
 {
+    static Scanner sc = new Scanner(System.in);
+
     public static void SearchByPublicationDate(List<Recipe> recipes)
     {
         Scanner sc = new Scanner(System.in);
@@ -116,6 +118,31 @@ public class Search
 
         if (!found) {
             System.out.println("No recipes found for the selected dish type.");
+        }
+    }
+
+    public static void SearchByName(List<Recipe> recipes)
+    {
+
+        System.out.print("Enter the number of diners to search for: ");
+        String name;
+
+        name = sc.nextLine();
+
+
+        boolean found = false;
+        for (Recipe r : recipes)
+        {
+            if (r.getName() == name)
+            {
+                System.out.println(r);
+                found = true;
+            }
+        }
+
+        if (!found)
+        {
+            System.out.println("No recipes found for " + name + ".");
         }
     }
 }
