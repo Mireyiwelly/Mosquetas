@@ -1,7 +1,6 @@
 package Recipe.main;
 import Recipe.classes.Recipe;
-import Recipe.utils.CreateRecipe;
-import Recipe.utils.Menu;
+import Recipe.utils.*;
 
 import java.util.List;
 
@@ -13,6 +12,7 @@ public class Main
     {
         LoginOptions optionUser;
         AppMenuOptions appOption;
+        AdminOptions adminOption;
         do {
             optionUser = Menu.MenuLogIn();
             switch (optionUser)
@@ -50,6 +50,10 @@ public class Main
                 case NEW_AUTHOR:
                     System.out.println("New author account creation selected.");
                     // Implement new author account creation functionality here
+                    break;
+                case ADMIN:
+                    System.out.println("Admin login successful!");
+                    adminOption = Menu.AdminMenu();
                     break;
                 case EXIT:
                     System.out.println("Exiting the application.");

@@ -1,5 +1,7 @@
 package Recipe.classes;
 
+import Recipe.utils.SpecialDiets;
+
 import java.time.LocalDate;
 import java.util.List;
 

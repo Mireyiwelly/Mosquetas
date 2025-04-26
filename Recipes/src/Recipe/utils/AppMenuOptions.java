@@ -1,4 +1,4 @@
-package Recipe.main;
+package Recipe.utils;
 
 public enum AppMenuOptions
 {
