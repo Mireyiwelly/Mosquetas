@@ -1,5 +1,7 @@
 package Recipe.utils;
 import Recipe.classes.*;
+
+import java.io.IOException;
 import java.util.Scanner;
 
 import java.time.LocalDate;
@@ -12,6 +14,11 @@ public class CreateRecipe
 {
     private static User currentUser;
 
+    /**
+     * Set the current user
+     * @param user the user to set as current
+     */
+    // We need to set the current user when the user logs in
     public static void setCurrentUser(User user) {
         currentUser = user;
     }
@@ -68,10 +75,10 @@ public class CreateRecipe
         System.out.println("How many ingredients have: ");
         int numIngredients = sc.nextInt();
 
-        for (int i = 0; i < numIngredients; i++) {
+        for (int i = 0; i < numIngredients; i++)
+        {
             ingredients.add(addIngredient());
         }
-
 
         author = currentUser;
 
@@ -88,9 +95,9 @@ public class CreateRecipe
             recipeType = sc.nextInt();
             sc.nextLine();
         }
-        while(recipeType < 1 || recipeType > 4);
+        while (recipeType < 1 || recipeType > 4);
 
-        if(recipeType == 1)
+        if (recipeType == 1)
         {
             int servingTemperature;
             String culturalOrigin;
@@ -104,8 +111,7 @@ public class CreateRecipe
             recipes.add(new Appetizer(name, numDiners, preparation, ingredients, calories,
                     difficultyLevel, specialDiet, publicationDate, preparationTime,
                     author, servingTemperature, culturalOrigin, 'A'));
-        }
-        else if(recipeType == 2)
+        } else if (recipeType == 2)
         {
             boolean containAlcohol;
             float alcoholContent;
@@ -122,8 +128,7 @@ public class CreateRecipe
                     difficultyLevel, specialDiet, publicationDate, preparationTime,
                     author, containAlcohol, alcoholContent, flambe, 'C'));
 
-        }
-        else if(recipeType == 3)
+        } else if (recipeType == 3)
         {
             String celebrationDish;
             String sideDish;
@@ -136,8 +141,7 @@ public class CreateRecipe
             recipes.add(new MainCourse(name, numDiners, preparation, ingredients, calories,
                     difficultyLevel, specialDiet, publicationDate, preparationTime,
                     author, celebrationDish, sideDish, 'M'));
-        }
-        else
+        } else
         {
             boolean baked;
             int restingTime;
