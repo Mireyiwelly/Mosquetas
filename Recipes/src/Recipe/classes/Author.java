@@ -10,6 +10,7 @@ import java.util.List;
 public class Author extends User
 {
     protected String password;
+    protected int numRecipes;
 
     /**
      * Constructor for Author class.
@@ -22,6 +23,7 @@ public class Author extends User
                   String password)
     {
         super(name);
+        this.numRecipes = numRecipes;
         this.password = password;
     }
 
@@ -41,5 +43,23 @@ public class Author extends User
     public void setPassword(String password)
     {
         this.password = password;
+    }
+
+    /**
+     * Gets the number of recipes created by the user.
+     * @return the number of recipes
+     */
+    public int getNumRecipes()
+    {
+        return numRecipes;
+    }
+
+    /**
+     * Sets the number of recipes created by the user.
+     * @param numRecipes the new number of recipes
+     */
+    public void setNumRecipes(int numRecipes)
+    {
+        this.numRecipes = numRecipes;
     }
 }

@@ -59,6 +59,7 @@ public class ReadFile
 
     public static void ReadUsersFile()
     {
+        String name;
 
         try (BufferedReader inputFile = new BufferedReader(new FileReader(new File(userFileName)))) {
             String line;

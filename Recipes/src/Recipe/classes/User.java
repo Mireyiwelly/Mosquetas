@@ -9,7 +9,7 @@ import java.util.List;
 abstract public class User
 {
     protected String name;
-    protected int numRecipes;
+
     protected List<Recipe> createdRecipes;
 
     /**
@@ -39,23 +39,7 @@ abstract public class User
         this.name = name;
     }
 
-    /**
-     * Gets the number of recipes created by the user.
-     * @return the number of recipes
-     */
-    public int getNumRecipes()
-    {
-        return numRecipes;
-    }
 
-    /**
-     * Sets the number of recipes created by the user.
-     * @param numRecipes the new number of recipes
-     */
-    public void setNumRecipes(int numRecipes)
-    {
-        this.numRecipes = numRecipes;
-    }
 
     /**
      * Gets the list of recipes created by the user.
