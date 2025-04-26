@@ -1,8 +1,14 @@
 package Recipe.main;
+import Recipe.classes.Recipe;
+import Recipe.utils.CreateRecipe;
 import Recipe.utils.Menu;
+
+import java.util.List;
 
 public class Main
 {
+    static List<Recipe> recipes;
+
     public static void main(String[] args)
     {
         LoginOptions optionUser;
@@ -14,6 +20,28 @@ public class Main
                 case AUTHOR:
                     System.out.println("Author login selected.");
                     // Implement author login functionality here
+                    appOption = Menu.AppOptions();
+                    switch (appOption)
+                    {
+                        case ADD_RECIPE:
+                            System.out.println("Add recipe selected.");
+                            recipes = CreateRecipe.createRecipe();
+                            break;
+                        case MODIFY_RECIPE:
+                            System.out.println("Modify recipe selected.");
+                            // Implement modify recipe functionality here
+                            break;
+                        case DELETE_RECIPE:
+                            System.out.println("Delete recipe selected.");
+                            // Implement delete recipe functionality here
+                            break;
+                        case SEARCH_RECIPE:
+                            System.out.println("Search recipe selected.");
+                            // Implement search recipe functionality here
+                            break;
+                        default:
+                            System.out.println("Invalid option selected.");
+                    }
                     break;
                 case GUEST:
                     System.out.println("Guest login selected.");
