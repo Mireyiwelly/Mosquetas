@@ -99,31 +99,55 @@ public class ReadFile
         return recipes;
     }
 
-    public static void ReadUsersFile()
+    public static List<User> ReadUserFile()
     {
-        String name;
-        int numRecipes;
-        String password;
+        List<User> users = new ArrayList<>();
 
-        try (BufferedReader inputFile = new BufferedReader(new FileReader(new File(userFileName)))) {
+        try (BufferedReader inputFile = new BufferedReader(new FileReader(new File(userFileName))))
+        {
             String line;
             while ((line = inputFile.readLine()) != null)
             {
                 String[] userData = line.split(";");
-                Guest guest;
-                name = userData[0];
-                guest = new Guest(name);
-                if(userData.length == 3)
-                {
-                    Author author;
-                    numRecipes = Integer.parseInt(userData[1]);
-                    password = userData[2];
 
-                    author = new Author(name,numRecipes,password);
+                String name;
+                int numRecipes;
+                String password;
+
+                char userType = userData[0].charAt(0);;
+                name = userData[1];
+                switch (userType)
+                {
+                    case 'A' :
+                    {
+                        password = userData[2];
+
+                        users.add(new Admin(name, password));
+                        break;
+                    }
+                    case 'G' :
+                    {
+                        users.add(new Guest(name));
+                        break;
+                    }
+                    case 'T' :
+                    {
+                        numRecipes = Integer.parseInt(userData[2]);
+                        password = userData[3];
+
+                        users.add(new Author(name, numRecipes,password));
+                        break;
+                    }
+                    default:
+                        System.err.println("Unknown user: " + userType);
+                        break;
                 }
             }
-        } catch (IOException fileError) {
+        }
+        catch (IOException fileError)
+        {
             System.err.println("Error reading file: " + fileError.getMessage());
         }
+        return users;
     }
 }
