@@ -84,7 +84,6 @@ public class Search
         }
 
         String typeToSearch = "";
-
         switch (option) {
             case 1:
                 typeToSearch = "A";
