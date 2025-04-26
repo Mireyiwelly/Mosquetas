@@ -64,9 +64,9 @@ public class ReadFile
             String line;
             while ((line = inputFile.readLine()) != null)
             {
-                String[] recipeData = line.split(";");
+                String[] userData = line.split(";");
                 //aqui va el invitado
-                if(recipeData.length == 4)
+                if(userData.length == 4)
                 {
                     //aqui va el autor y el admin
                 }
