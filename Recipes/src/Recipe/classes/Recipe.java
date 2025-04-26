@@ -113,4 +113,18 @@ abstract public class Recipe
     public void setAuthor(User author) {
         this.author = author;
     }
+
+    @Override
+    public String toString()
+    {
+        return "Name: " + name + "\n" +
+                "Number of diners: " + numDiners + "\n" +
+                "Preparation: " + preparation + "\n" +
+                "Ingredients: " + ingredients + "\n" +
+                "Calories: " + calories + "\n" +
+                "Difficulty Level: " + difficultyLevel + "\n" +
+                "Special Diet: " + specialDiet + "\n" +
+                "Publication Date: " + publicationDate + "\n" +
+                "Preparation Time: " + preparationTime + "\n";
+    }
 }

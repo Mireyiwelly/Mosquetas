@@ -58,4 +58,12 @@ abstract public class User
     {
         this.createdRecipes = createdRecipes;
     }
+
+    
+    @Override
+    public String toString()
+    {
+        return "Name: " + name + "\n" + "User Type: " + userType + "\n" +
+                "Created Recipes: " + createdRecipes;
+    }
 }

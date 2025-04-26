@@ -56,4 +56,13 @@ public class Dessert extends Recipe
         this.servingTemperature = servingTemperature;
     }
 
+    @Override
+    public String toString()
+    {
+        return super.toString() + "\n" +
+                "Baked: " + baked + "\n" +
+                "Resting Time: " + restingTime + "\n" +
+                "Baking Time: " + bakingTime + "\n" +
+                "Serving Temperature: " + servingTemperature + "\n";
+    }
 }
