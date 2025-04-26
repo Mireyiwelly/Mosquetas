@@ -13,10 +13,10 @@ public class Dessert extends Recipe
 
     public Dessert(String name, int numDiners, String preparation, List<Ingredient> ingredients, float calories,
                    char difficultyLevel, SpecialDiets specialDiet, LocalDate publicationDate, int preparationTime,
-                   User author, boolean baked, int restingTime, int bakingTime, int servingTemperature)
+                   User author, boolean baked, int restingTime, int bakingTime, int servingTemperature, char dishType)
     {
         super(name, numDiners, preparation, ingredients, calories, difficultyLevel,
-                specialDiet, publicationDate, preparationTime, author);
+                specialDiet, publicationDate, preparationTime, author, dishType);
         this.baked = baked;
         this.restingTime = restingTime;
         this.bakingTime = bakingTime;

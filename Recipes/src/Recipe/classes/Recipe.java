@@ -16,10 +16,11 @@ abstract public class Recipe
     protected LocalDate publicationDate;
     protected int preparationTime;
     protected User author;
+    protected char dishType; // 'A' for Appetizer, 'M' for Main Course, 'D' for Dessert, 'C' for Cocktail
 
     public Recipe(String name, int numDiners, String preparation, List<Ingredient> ingredients, float calories,
                   char difficultyLevel, SpecialDiets specialDiet, LocalDate publicationDate,
-                  int preparationTime, User author) {
+                  int preparationTime, User author, char dishType){
         this.name = name;
         this.numDiners = numDiners;
         this.preparation = preparation;
@@ -30,6 +31,7 @@ abstract public class Recipe
         this.publicationDate = publicationDate;
         this.preparationTime = preparationTime;
         this.author = author;
+        this.dishType = dishType;
     }
 
     public String getName() {

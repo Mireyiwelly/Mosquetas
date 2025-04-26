@@ -11,10 +11,10 @@ public class MainCourse extends Recipe
 
     public MainCourse(String name, int numDiners, String preparation, List<Ingredient> ingredients, float calories,
                       char difficultyLevel, SpecialDiets specialDiet, LocalDate publicationDate, int preparationTime,
-                      User author, String celebrationDish, String sideDish)
+                      User author, String celebrationDish, String sideDish, char dishType)
     {
         super(name, numDiners, preparation, ingredients, calories, difficultyLevel, specialDiet, publicationDate,
-                preparationTime, author);
+                preparationTime, author, dishType);
         this.celebrationDish = celebrationDish;
         this.sideDish = sideDish;
     }
