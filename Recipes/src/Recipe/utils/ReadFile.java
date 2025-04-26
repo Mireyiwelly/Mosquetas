@@ -109,14 +109,17 @@ public class ReadFile
             while ((line = inputFile.readLine()) != null)
             {
                 String[] userData = line.split(";");
+                Guest guest;
                 name = userData[0];
+                guest = new Guest(name);
                 if(userData.length == 3)
                 {
+                    Author author;
                     numRecipes = Integer.parseInt(userData[1]);
                     password = userData[2];
+
+                    author = new Author(name,numRecipes,password);
                 }
-
-
             }
         } catch (IOException fileError) {
             System.err.println("Error reading file: " + fileError.getMessage());
