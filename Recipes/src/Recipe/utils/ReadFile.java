@@ -101,16 +101,19 @@ public class ReadFile
     public static void ReadUsersFile()
     {
         String name;
+        int numRecipes;
+        String password;
 
         try (BufferedReader inputFile = new BufferedReader(new FileReader(new File(userFileName)))) {
             String line;
             while ((line = inputFile.readLine()) != null)
             {
                 String[] userData = line.split(";");
-                //aqui va el invitado
-                if(userData.length == 4)
+                name = userData[0];
+                if(userData.length == 3)
                 {
-                    //aqui va el autor y el admin
+                    numRecipes = Integer.parseInt(userData[1]);
+                    password = userData[2];
                 }
 
 
