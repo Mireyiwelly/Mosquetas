@@ -7,14 +7,23 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Utility class to read recipe and user data from files.
+ * It contains methods to read recipes and users from text files.
+ */
 public class ReadFile
 {
     private static final String recipeFileName = "recipes.txt";
     private static final String userFileName = "users.txt";
 
+    /**
+     * Reads the recipe data from a file and returns a list of Recipe objects.
+     * @return List of Recipe objects
+     */
     public static List<Recipe> ReadRecipeFile() 
     {
         List<Recipe> recipes = new ArrayList<>();
+        List<Ingredient> ingredients = new ArrayList<>();
 
         try (BufferedReader inputFile = new BufferedReader(new FileReader(new File(recipeFileName))))
         {
@@ -27,7 +36,7 @@ public class ReadFile
                 String name = recipeData[1];
                 int numDiners = Integer.parseInt(recipeData[2]);
                 String preparation = recipeData[3];
-                List<Ingredient> ingredients = List.of(new Ingredient(recipeData[4], Integer.parseInt(recipeData[5]), recipeData[6]));
+                ingredients.add(new Ingredient(recipeData[4], Integer.parseInt(recipeData[5]), recipeData[6]));
                 float calories = Float.parseFloat(recipeData[7]);
                 char difficultyLevel = recipeData[8].charAt(0);
                 SpecialDiets specialDiet = SpecialDiets.valueOf(recipeData[9]);
@@ -39,6 +48,7 @@ public class ReadFile
                     case 'A' -> {
                         int servingTemperature = Integer.parseInt(recipeData[15]);
                         String culturalOrigin = recipeData[16];
+
                         recipes.add(new Appetizer(name, numDiners, preparation, ingredients, calories,
                                 difficultyLevel, specialDiet, publicationDate, preparationTime,
                                 author, servingTemperature, culturalOrigin, dishType));
@@ -47,6 +57,7 @@ public class ReadFile
                         boolean containAlcohol = Boolean.parseBoolean(recipeData[15]);
                         float alcoholContent = Float.parseFloat(recipeData[16]);
                         boolean flambe = Boolean.parseBoolean(recipeData[17]);
+
                         recipes.add(new Cocktail(name, numDiners, preparation, ingredients, calories,
                                 difficultyLevel, specialDiet, publicationDate, preparationTime,
                                 author, containAlcohol, alcoholContent, flambe, dishType));
@@ -54,6 +65,7 @@ public class ReadFile
                     case 'M' -> {
                         String celebrationDish = recipeData[15];
                         String sideDish = recipeData[16];
+
                         recipes.add(new MainCourse(name, numDiners, preparation, ingredients, calories,
                                 difficultyLevel, specialDiet, publicationDate, preparationTime,
                                 author, celebrationDish, sideDish, dishType));
@@ -63,6 +75,7 @@ public class ReadFile
                         int restingTime = Integer.parseInt(recipeData[16]);
                         int bakingTime = Integer.parseInt(recipeData[17]);
                         int servingTemperature = Integer.parseInt(recipeData[18]);
+
                         recipes.add(new Dessert(name, numDiners, preparation, ingredients, calories,
                                 difficultyLevel, specialDiet, publicationDate, preparationTime,
                                 author, baked, restingTime, bakingTime, servingTemperature, dishType));
