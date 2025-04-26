@@ -43,4 +43,13 @@ public class Cocktail extends Recipe
     public void setFlambe(boolean flambe) {
         this.flambe = flambe;
     }
+
+    @Override
+    public String toString()
+    {
+        return super.toString() + "\n" +
+                "Contains Alcohol: " + containAlcohol + "\n" +
+                "Alcohol Content: " + alcoholContent + "\n" +
+                "Flambe: " + flambe + "\n";
+    }
 }
