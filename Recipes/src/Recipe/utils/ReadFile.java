@@ -45,15 +45,16 @@ public class ReadFile
                 User author = new Author(recipeData[12], Integer.parseInt(recipeData[13]), recipeData[14]);
 
                 switch (dishType) {
-                    case 'A' -> {
+                    case 'A':
                         int servingTemperature = Integer.parseInt(recipeData[15]);
                         String culturalOrigin = recipeData[16];
 
                         recipes.add(new Appetizer(name, numDiners, preparation, ingredients, calories,
                                 difficultyLevel, specialDiet, publicationDate, preparationTime,
                                 author, servingTemperature, culturalOrigin, dishType));
-                    }
-                    case 'C' -> {
+                        break;
+
+                    case 'C':
                         boolean containAlcohol = Boolean.parseBoolean(recipeData[15]);
                         float alcoholContent = Float.parseFloat(recipeData[16]);
                         boolean flambe = Boolean.parseBoolean(recipeData[17]);
@@ -61,27 +62,33 @@ public class ReadFile
                         recipes.add(new Cocktail(name, numDiners, preparation, ingredients, calories,
                                 difficultyLevel, specialDiet, publicationDate, preparationTime,
                                 author, containAlcohol, alcoholContent, flambe, dishType));
-                    }
-                    case 'M' -> {
+                        break;
+
+                    case 'M':
                         String celebrationDish = recipeData[15];
                         String sideDish = recipeData[16];
 
                         recipes.add(new MainCourse(name, numDiners, preparation, ingredients, calories,
                                 difficultyLevel, specialDiet, publicationDate, preparationTime,
                                 author, celebrationDish, sideDish, dishType));
-                    }
-                    case 'D' -> {
+                        break;
+
+                    case 'D':
                         boolean baked = Boolean.parseBoolean(recipeData[15]);
                         int restingTime = Integer.parseInt(recipeData[16]);
                         int bakingTime = Integer.parseInt(recipeData[17]);
-                        int servingTemperature = Integer.parseInt(recipeData[18]);
+                        servingTemperature = Integer.parseInt(recipeData[18]);
 
                         recipes.add(new Dessert(name, numDiners, preparation, ingredients, calories,
                                 difficultyLevel, specialDiet, publicationDate, preparationTime,
                                 author, baked, restingTime, bakingTime, servingTemperature, dishType));
-                    }
-                    default -> System.err.println("Unknown dish: " + dishType);
+                        break;
+
+                    default:
+                        System.err.println("Unknown dish: " + dishType);
+                        break;
                 }
+
             }
         }
         catch (IOException fileError)
