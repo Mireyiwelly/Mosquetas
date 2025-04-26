@@ -1,7 +1,5 @@
 package Recipe.classes;
 
-import Recipe.utils.SpecialDiets;
-
 import java.time.LocalDate;
 import java.util.List;
 
@@ -114,6 +112,10 @@ abstract public class Recipe
 
     public void setAuthor(User author) {
         this.author = author;
+    }
+
+    public char getDishType() {
+        return dishType;
     }
 
     @Override

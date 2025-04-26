@@ -1,5 +1,6 @@
 package Recipe.main;
 import Recipe.classes.Recipe;
+import Recipe.classes.User;
 import Recipe.utils.*;
 
 import java.util.List;
@@ -7,13 +8,20 @@ import java.util.List;
 public class Main
 {
     static List<Recipe> recipes;
+    static List<User> users;
 
     public static void main(String[] args)
     {
+        users = ReadFile.ReadUserFile();
         LoginOptions optionUser;
         AppMenuOptions appOption;
         AdminOptions adminOption;
-        do {
+        DeleteOptions deleteOption;
+        SearchOptions searchOption;
+        GuestOptions guestOption;
+
+        do
+        {
             optionUser = Menu.MenuLogIn();
             switch (optionUser)
             {
@@ -33,11 +41,11 @@ public class Main
                             break;
                         case DELETE_RECIPE:
                             System.out.println("Delete recipe selected.");
-                            // Implement delete recipe functionality here
+                            deleteOption = Menu.DeleteMenu();
                             break;
                         case SEARCH_RECIPE:
                             System.out.println("Search recipe selected.");
-                            // Implement search recipe functionality here
+                            searchOption = Menu.SearchMenu();
                             break;
                         default:
                             System.out.println("Invalid option selected.");
@@ -45,7 +53,7 @@ public class Main
                     break;
                 case GUEST:
                     System.out.println("Guest login selected.");
-                    // Implement guest login functionality here
+                    guestOption = Menu.GuestMenu();
                     break;
                 case NEW_AUTHOR:
                     System.out.println("New author account creation selected.");
@@ -57,12 +65,11 @@ public class Main
                     break;
                 case EXIT:
                     System.out.println("Exiting the application.");
-                    // Implement exit functionality here
+                    WriteFile.writeUsers(users);
                     break;
                 default:
                     System.out.println("Invalid option selected.");
             }
         } while(optionUser != LoginOptions.EXIT);
-
     }
 }
