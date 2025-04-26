@@ -9,7 +9,7 @@ import java.util.List;
 abstract public class User
 {
     protected String name;
-
+    protected char userType; // A for Admin, G for guest, T for Author
     protected List<Recipe> createdRecipes;
 
     /**
