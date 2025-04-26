@@ -34,4 +34,12 @@ public class MainCourse extends Recipe
     public void setSideDish(String sideDish) {
         this.sideDish = sideDish;
     }
+
+    @Override
+    public String toString()
+    {
+        return super.toString() + "\n" +
+                "Celebration Dish: " + celebrationDish + "\n" +
+                "Side Dish: " + sideDish + "\n";
+    }
 }

@@ -33,4 +33,12 @@ public class Appetizer extends Recipe
     public void setCulturalOrigin(String culturalOrigin) {
         this.culturalOrigin = culturalOrigin;
     }
+
+    @Override
+    public String toString()
+    {
+        return super.toString() + "\n" +
+                "Serving Temperature: " + servingtemperature + "\n" +
+                "Cultural Origin: " + culturalOrigin + "\n";
+    }
 }
