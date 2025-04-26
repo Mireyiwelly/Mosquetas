@@ -9,7 +9,6 @@ public class Search
 
     public static void SearchByPublicationDate(List<Recipe> recipes)
     {
-        Scanner sc = new Scanner(System.in);
         LocalDate searchDate = null;
 
         System.out.print("Enter the publication date to search (YYYY-MM-DD): ");
@@ -39,9 +38,8 @@ public class Search
         }
     }
 
-    public static void SearchByNumberOfDiners(List<Recipe> recipes) {
-        Scanner sc = new Scanner(System.in);
-
+    public static void SearchByNumberOfDiners(List<Recipe> recipes)
+    {
         System.out.print("Enter the number of diners to search for: ");
         int numDiners = 0;
 
@@ -67,9 +65,8 @@ public class Search
         }
     }
 
-    public static void SearchByDishType(List<Recipe> recipes) {
-        Scanner sc = new Scanner(System.in);
-
+    public static void SearchByDishType(List<Recipe> recipes)
+    {
         System.out.println("Select the type of dish to search:");
         System.out.println("1. Appetizer");
         System.out.println("2. Cocktail");
@@ -123,12 +120,10 @@ public class Search
 
     public static void SearchByName(List<Recipe> recipes)
     {
-
-        System.out.print("Enter the number of diners to search for: ");
+        System.out.print("Enter the recipe name: ");
         String name;
 
         name = sc.nextLine();
-
 
         boolean found = false;
         for (Recipe r : recipes)
