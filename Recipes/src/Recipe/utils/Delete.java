@@ -93,35 +93,41 @@ public class Delete
         System.out.println("Enter user name: ");
         userName = sc.nextLine();
 
-        for(int i = 0; i < users.size(); i++)
+        if(userName.equalsIgnoreCase("anonimo"))
         {
-            User u = users.get(i);
-            if(u.getName().equalsIgnoreCase(userName) && !userName.equalsIgnoreCase("anonimo"))
+            System.out.println("You can't delete this author. Sorry");
+        }
+        else
+        {
+            for(int i = 0; i < users.size(); i++)
             {
-                found = true;
-                do {
-                    if(!confirmation.equalsIgnoreCase("Y") &&
-                            !confirmation.equalsIgnoreCase("N"))
+                User u = users.get(i);
+                if(u.getName().equalsIgnoreCase(userName))
+                {
+                    found = true;
+                    do {
+                        if(!confirmation.equalsIgnoreCase("Y") &&
+                                !confirmation.equalsIgnoreCase("N"))
+                        {
+                            System.out.println("Do you want to delete this user? (Y/N)");
+                            confirmation = sc.nextLine();
+                        }
+                    }
+                    while(!confirmation.equalsIgnoreCase("Y") &&
+                            !confirmation.equalsIgnoreCase("N"));
+                    if(confirmation.equalsIgnoreCase("Y"))
                     {
-                        System.out.println("Do you want to delete this recipe? (Y/N)");
-                        confirmation = sc.nextLine();
+                        users.remove(i);
+                        System.out.println("User deleted.");
+                        i--;
                     }
                 }
-                while(!confirmation.equalsIgnoreCase("Y") &&
-                        !confirmation.equalsIgnoreCase("N"));
-                if(confirmation.equalsIgnoreCase("Y"))
-                {
-                    users.remove(i);
-                    System.out.println("User deleted.");
-                    i--;
-                }
             }
-            else if(userName.equalsIgnoreCase("anonimo"))
-                System.out.println("You can't delete this author. Sorry");
+            if(!found)
+            {
+                System.out.println("No user found");
+            }
         }
-        if(!found)
-        {
-            System.out.println("No user found");
-        }
+
     }
 }
