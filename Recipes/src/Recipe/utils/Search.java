@@ -165,7 +165,8 @@ public class Search
             }
         }
 
-        if (!found) {
+        if (!found)
+        {
             System.out.println("No recipes found for this preparation time.");
         }
     }
