@@ -102,6 +102,28 @@ public class Main
                 case ADMIN:
                     System.out.println("Admin login successful!");
                     adminOption = Menu.AdminMenu();
+                    switch (adminOption)
+                    {
+                        case DELETE_RECIPE:
+                            System.out.println("Delete recipe");
+                            Delete.DeleteByNameAndUser(recipes);
+                            break;
+                        case DELETE_USER:
+                            System.out.println("Delete user");
+                            //
+                            break;
+                        case SHOW_USERS:
+                            //
+                            break;
+                        case SHOW_RECIPES:
+                            //
+                            break;
+                        case LOGOUT:
+                            //
+                            break;
+                        default:
+                            System.out.println("Invalid option selected.");
+                    }
                     break;
                 case EXIT:
                     System.out.println("Exiting the application.");
