@@ -1,6 +1,5 @@
 package Recipe.utils;
 import Recipe.classes.*;
-import Recipe.main.Main;
 
 import java.io.*;
 import java.time.LocalDate;
@@ -13,8 +12,8 @@ import java.util.List;
  */
 public class ReadFile
 {
-    private static final String recipeFileName = "recipes.txt";
-    private static final String userFileName = "users.txt";
+    private static final String RECIPEFILENAME = "recipes.txt";
+    private static final String USERFILENAME = "users.txt";
 
     /**
      * Reads the recipe data from a file and returns a list of Recipe objects.
@@ -24,8 +23,9 @@ public class ReadFile
     {
         List<Recipe> recipes = new ArrayList<>();
         List<Ingredient> ingredients = new ArrayList<>();
+        int servingTemperature;
 
-        try (BufferedReader inputFile = new BufferedReader(new FileReader(new File(recipeFileName))))
+        try (BufferedReader inputFile = new BufferedReader(new FileReader(new File(RECIPEFILENAME))))
         {
             String line;
             while ((line = inputFile.readLine()) != null)
@@ -46,7 +46,7 @@ public class ReadFile
 
                 switch (dishType) {
                     case 'A':
-                        int servingTemperature = Integer.parseInt(recipeData[15]);
+                        servingTemperature = Integer.parseInt(recipeData[15]);
                         String culturalOrigin = recipeData[16];
 
                         recipes.add(new Appetizer(name, numDiners, preparation, ingredients, calories,
@@ -103,7 +103,7 @@ public class ReadFile
     {
         List<User> users = new ArrayList<>();
 
-        try (BufferedReader inputFile = new BufferedReader(new FileReader(new File(userFileName))))
+        try (BufferedReader inputFile = new BufferedReader(new FileReader(new File(USERFILENAME))))
         {
             String line;
             while ((line = inputFile.readLine()) != null)

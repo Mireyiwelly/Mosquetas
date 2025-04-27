@@ -114,6 +114,7 @@ abstract public class Recipe
         this.author = author;
     }
 
+
     public String toFile()
     {
         //Aquí junto todos los elementos de los ingredientes ya que no se puede acceder a la clase directamente como tal
@@ -125,6 +126,10 @@ abstract public class Recipe
         }
         return dishType + ";" + name + ";" + numDiners + ";" + preparation + ";" + ingredientsInfo + ";" + calories +
                 ";" + difficultyLevel + ";" + specialDiet + ";" + publicationDate + ";" + preparationTime + ";" + author;
+
+    public char getDishType() {
+        return dishType;
+
     }
 
     @Override

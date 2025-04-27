@@ -1,4 +1,4 @@
-package Recipe.main;
+package Recipe.utils;
 
 /**
  * Enum representing the different login options available in the application.
@@ -7,6 +7,7 @@ package Recipe.main;
  */
 public enum LoginOptions
 {
-    AUTHOR, GUEST, NEW_AUTHOR, EXIT;
+    AUTHOR, GUEST, NEW_AUTHOR, EXIT, ADMIN;
 }
+
 
