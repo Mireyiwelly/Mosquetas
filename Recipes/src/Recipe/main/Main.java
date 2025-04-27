@@ -46,6 +46,46 @@ public class Main
                         case SEARCH_RECIPE:
                             System.out.println("Search recipe selected.");
                             searchOption = Menu.SearchMenu();
+                            switch(searchOption)
+                            {
+                                case DATE:
+                                    System.out.println("Search recipe by date selected.");
+                                    Search.SearchByPublicationDate(recipes);
+                                    break;
+                                case DINERS:
+                                    System.out.println("Search recipe by diners selected.");
+                                    Search.SearchByNumberOfDiners(recipes);
+                                    break;
+                                case DIET:
+                                    System.out.println("Search recipe by diet selected.");
+                                    //implement search by diet method here
+                                    break;
+                                case DISH:
+                                    System.out.println("Search recipe by dish selected.");
+                                    Search.SearchByDishType(recipes);
+                                    break;
+                                case NAME:
+                                    System.out.println("Search recipe by name selected.");
+                                    Search.SearchByName(recipes);
+                                    break;
+                                case DIFFICULTY:
+                                    System.out.println("Search recipe by difficulty selected.");
+                                    Search.SearchByDifficulty(recipes);
+                                    break;
+                                case INGREDIENTS:
+                                    System.out.println("Search recipe by ingredients selected.");
+                                    //Implement search by ingredients method here
+                                    break;
+                                case PREPARATION_TIME:
+                                    System.out.println("Search recipe by preparation time selected.");
+                                    //Implement search by preparation time method here
+                                    break;
+                                case EXIT:
+                                    System.out.println("Exiting search by.");
+                                    break;
+                                default:
+                                    System.out.println("Invalid option selected.");
+                            }
                             break;
                         default:
                             System.out.println("Invalid option selected.");
