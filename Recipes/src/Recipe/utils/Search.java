@@ -139,4 +139,34 @@ public class Search
             System.out.println("No recipes found for " + name + ".");
         }
     }
+
+    public static void SearchByPreparationTime(List<Recipe> recipes)
+    {
+        System.out.print("Enter the preparation time: ");
+        int preparationTime = 0;
+
+        try
+        {
+            preparationTime = sc.nextInt();
+        }
+        catch (Exception e)
+        {
+            System.out.println("Invalid input. Please enter a valid integer number.");
+            sc.nextLine();
+        }
+
+        boolean found = false;
+        for (Recipe r : recipes)
+        {
+            if (r.getPreparationTime() == preparationTime)
+            {
+                System.out.println(r);
+                found = true;
+            }
+        }
+
+        if (!found) {
+            System.out.println("No recipes found for this preparation time.");
+        }
+    }
 }
