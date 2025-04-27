@@ -118,7 +118,18 @@ abstract public class Recipe
         return dishType;
     }
 
-    @Override
+    public String toFile() {
+        //Aquí junto todos los elementos de los ingredientes ya que no se puede acceder a la clase directamente como tal
+        StringBuilder ingredientsInfo = new StringBuilder();
+        for (Ingredient ingredient : ingredients) {
+            ingredientsInfo.append(ingredient.getName()).append(";").append(ingredient.getNumber()).append(";")
+                    .append(ingredient.getUnit());
+        }
+        return dishType + ";" + name + ";" + numDiners + ";" + preparation + ";" + ingredientsInfo + ";" + calories +
+                ";" + difficultyLevel + ";" + specialDiet + ";" + publicationDate + ";" + preparationTime + ";" + author;
+    }
+
+        @Override
     public String toString()
     {
         return "Name: " + name + "\n" +

@@ -1,6 +1,7 @@
 package Recipe.utils;
 
 import Recipe.classes.Recipe;
+import Recipe.classes.User;
 
 import java.util.Iterator;
 import java.util.List;
@@ -80,6 +81,47 @@ public class Delete
         if(!found)
         {
             System.out.println("No recipes found");
+        }
+    }
+
+    public static void DeleteUser(List<User> users)
+    {
+        String userName;
+        boolean found = false;
+        String confirmation = "";
+
+        System.out.println("Enter user name: ");
+        userName = sc.nextLine();
+
+        for(int i = 0; i < users.size(); i++)
+        {
+            User u = users.get(i);
+            if(u.getName().equalsIgnoreCase(userName) && !userName.equalsIgnoreCase("anonimo"))
+            {
+                found = true;
+                do {
+                    if(!confirmation.equalsIgnoreCase("Y") &&
+                            !confirmation.equalsIgnoreCase("N"))
+                    {
+                        System.out.println("Do you want to delete this recipe? (Y/N)");
+                        confirmation = sc.nextLine();
+                    }
+                }
+                while(!confirmation.equalsIgnoreCase("Y") &&
+                        !confirmation.equalsIgnoreCase("N"));
+                if(confirmation.equalsIgnoreCase("Y"))
+                {
+                    users.remove(i);
+                    System.out.println("User deleted.");
+                    i--;
+                }
+            }
+            else if(userName.equalsIgnoreCase("anonimo"))
+                System.out.println("You can't delete this author. Sorry");
+        }
+        if(!found)
+        {
+            System.out.println("No user found");
         }
     }
 }

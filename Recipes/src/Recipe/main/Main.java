@@ -105,12 +105,12 @@ public class Main
                     switch (adminOption)
                     {
                         case DELETE_RECIPE:
-                            System.out.println("Delete recipe");
+                            System.out.println("Delete recipe selected");
                             Delete.DeleteByNameAndUser(recipes);
                             break;
                         case DELETE_USER:
-                            System.out.println("Delete user");
-                            //
+                            System.out.println("Delete user selected");
+                            Delete.DeleteUser(users);
                             break;
                         case SHOW_USERS:
                             //
@@ -128,6 +128,7 @@ public class Main
                 case EXIT:
                     System.out.println("Exiting the application.");
                     WriteFile.writeUsers(users);
+                    WriteFile.saveRecipes(recipes);
                     break;
                 default:
                     System.out.println("Invalid option selected.");

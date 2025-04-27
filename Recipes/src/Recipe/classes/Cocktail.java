@@ -45,6 +45,12 @@ public class Cocktail extends Recipe
     }
 
     @Override
+    public String toFile()
+    {
+        return super.toFile() + ";" + containAlcohol + ";" + alcoholContent + ";" + flambe;
+    }
+
+    @Override
     public String toString()
     {
         return super.toString() + "\n" +
