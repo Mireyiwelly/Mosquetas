@@ -159,6 +159,15 @@ public class Search
         for(Recipe r : recipes)
         {
             if(r.getDifficultyLevel()== search)
+                System.out.println(r);
+            found = true;
+        }
+         if (!found)
+         {
+        System.out.println("No recipes found for this difficulty " + search);
+        }
+
+    }
 
     public static void SearchByPreparationTime(List<Recipe> recipes)
     {
@@ -185,12 +194,6 @@ public class Search
                 found = true;
             }
         }
-
-        if (!found)
-        {
-            System.out.println("No recipes found for this difficulty " + search);
-        }
-
         if (!found)
         {
             System.out.println("No recipes found for this preparation time.");
