@@ -34,4 +34,10 @@ public class Admin extends User
     {
         this.password = password;
     }
+
+    @Override
+    public String toFile()
+    {
+        return super.toFile() + ";" + password;
+    }
 }

@@ -59,7 +59,11 @@ abstract public class User
         this.createdRecipes = createdRecipes;
     }
 
-    
+    public String toFile()
+    {
+        return  userType + ";" + name + ";";
+    }
+
     @Override
     public String toString()
     {

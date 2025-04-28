@@ -63,6 +63,11 @@ public class Author extends User
         this.numRecipes = numRecipes;
     }
 
+    @Override
+    public String toFile()
+    {
+        return super.toFile() + ";" + password + ";" + numRecipes;
+    }
 
     @Override
     public String toString()
