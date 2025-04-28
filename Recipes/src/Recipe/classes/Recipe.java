@@ -11,7 +11,7 @@ abstract public class Recipe
     protected String preparation;
     protected List<Ingredient> ingredients;
     protected float calories;
-    protected char difficultyLevel;
+    protected char difficultyLevel; // 'E' for easy, 'M' for medium, 'H' for hard
     protected SpecialDiets specialDiet;
     protected LocalDate publicationDate;
     protected int preparationTime;
@@ -131,7 +131,7 @@ abstract public class Recipe
 
     }
 
-    @Override
+        @Override
     public String toString()
     {
         return "Name: " + name + "\n" +

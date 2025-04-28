@@ -46,6 +46,46 @@ public class Main
                         case SEARCH_RECIPE:
                             System.out.println("Search recipe selected.");
                             searchOption = Menu.SearchMenu();
+                            switch(searchOption)
+                            {
+                                case DATE:
+                                    System.out.println("Search recipe by date selected.");
+                                    Search.SearchByPublicationDate(recipes);
+                                    break;
+                                case DINERS:
+                                    System.out.println("Search recipe by diners selected.");
+                                    Search.SearchByNumberOfDiners(recipes);
+                                    break;
+                                case DIET:
+                                    System.out.println("Search recipe by diet selected.");
+                                    //implement search by diet method here
+                                    break;
+                                case DISH:
+                                    System.out.println("Search recipe by dish selected.");
+                                    Search.SearchByDishType(recipes);
+                                    break;
+                                case NAME:
+                                    System.out.println("Search recipe by name selected.");
+                                    Search.SearchByName(recipes);
+                                    break;
+                                case DIFFICULTY:
+                                    System.out.println("Search recipe by difficulty selected.");
+                                    Search.SearchByDifficulty(recipes);
+                                    break;
+                                case INGREDIENTS:
+                                    System.out.println("Search recipe by ingredients selected.");
+                                    //Implement search by ingredients method here
+                                    break;
+                                case PREPARATION_TIME:
+                                    System.out.println("Search recipe by preparation time selected.");
+                                    //Implement search by preparation time method here
+                                    break;
+                                case EXIT:
+                                    System.out.println("Exiting search by.");
+                                    break;
+                                default:
+                                    System.out.println("Invalid option selected.");
+                            }
                             break;
                         default:
                             System.out.println("Invalid option selected.");
@@ -62,10 +102,33 @@ public class Main
                 case ADMIN:
                     System.out.println("Admin login successful!");
                     adminOption = Menu.AdminMenu();
+                    switch (adminOption)
+                    {
+                        case DELETE_RECIPE:
+                            System.out.println("Delete recipe selected");
+                            Delete.DeleteByNameAndUser(recipes);
+                            break;
+                        case DELETE_USER:
+                            System.out.println("Delete user selected");
+                            Delete.DeleteUser(users);
+                            break;
+                        case SHOW_USERS:
+                            //
+                            break;
+                        case SHOW_RECIPES:
+                            //
+                            break;
+                        case LOGOUT:
+                            //
+                            break;
+                        default:
+                            System.out.println("Invalid option selected.");
+                    }
                     break;
                 case EXIT:
                     System.out.println("Exiting the application.");
                     WriteFile.writeUsers(users);
+                    WriteFile.saveRecipes(recipes);
                     break;
                 default:
                     System.out.println("Invalid option selected.");
