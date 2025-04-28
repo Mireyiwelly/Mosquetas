@@ -37,6 +37,12 @@ public class Guest extends User
     }
 
     @Override
+    public String toFile()
+    {
+        return super.toFile();
+    }
+
+    @Override
     public String toString()
     {
         return super.toString();

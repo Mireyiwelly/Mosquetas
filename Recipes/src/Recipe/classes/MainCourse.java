@@ -36,6 +36,12 @@ public class MainCourse extends Recipe
     }
 
     @Override
+    public String toFile()
+    {
+        return super.toFile() + ";" + celebrationDish + ";" + sideDish;
+    }
+
+    @Override
     public String toString()
     {
         return super.toString() + "\n" +
