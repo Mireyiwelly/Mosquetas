@@ -17,4 +17,10 @@ public class Admin extends User
         super(name);
         this.password = EncryptPassword(password);
     }
+
+    @Override
+    public String toFile()
+    {
+        return super.toFile() + ";" + password;
+    }
 }

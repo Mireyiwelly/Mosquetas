@@ -16,22 +16,7 @@ public class WriteFile
         {
             for (User user : users)
             {
-                if (user instanceof Admin)
-                {
-                    Admin admin = (Admin) user;
-                    writer.write("A;" + admin.getName() + ";" + admin.getPassword());
-                }
-                else if (user instanceof Author)
-                {
-                    Author author = (Author) user;
-                    writer.write("T;" + author.getName() + ";" + author.getNumRecipes() + ";" +
-                            author.getPassword());
-                }
-                else if (user instanceof Guest)
-                {
-                    Guest guest = (Guest) user;
-                    writer.write("G;" + guest.getName());
-                }
+                writer.write(user.toFile());
                 writer.newLine();
             }
             System.out.println("Correctly: " + USERFILENAME);

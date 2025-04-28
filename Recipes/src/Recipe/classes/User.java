@@ -56,6 +56,13 @@ abstract public class User
     }
 
 
+    public String toFile()
+    {
+        return  userType + ";" + name + ";";
+    }
+
+
+
 
     public String EncryptPassword(String password)
     {
@@ -72,6 +79,7 @@ abstract public class User
         return encriptedpassword.toString();
     }
     
+
     @Override
     public String toString()
     {
