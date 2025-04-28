@@ -23,6 +23,7 @@ public class ReadFile
     {
         List<Recipe> recipes = new ArrayList<>();
         List<Ingredient> ingredients = new ArrayList<>();
+        int servingTemperature;
 
         try (BufferedReader inputFile = new BufferedReader(new FileReader(new File(RECIPEFILENAME))))
         {
@@ -45,7 +46,7 @@ public class ReadFile
 
                 switch (dishType) {
                     case 'A':
-                        int servingTemperature = Integer.parseInt(recipeData[15]);
+                        servingTemperature = Integer.parseInt(recipeData[15]);
                         String culturalOrigin = recipeData[16];
 
                         recipes.add(new Appetizer(name, numDiners, preparation, ingredients, calories,
