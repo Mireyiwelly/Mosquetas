@@ -1,6 +1,4 @@
 package Recipe.classes;
-import Recipe.classes.User;
-import Recipe.classes.*;
 import java.util.List;
 
 /**
@@ -9,8 +7,8 @@ import java.util.List;
  */
 public class Author extends User
 {
-    protected String password;
     protected int numRecipes;
+    protected List<Recipe> createdRecipes;
 
     /**
      * Constructor for Author class.
@@ -24,31 +22,10 @@ public class Author extends User
     {
         super(name);
         this.numRecipes = numRecipes;
-        this.password = password;
+        this.password = EncryptPassword(password);
+
     }
 
-    /**
-     * Gets the password of the author.
-     * @return the password of the author
-     */
-    public String getPassword()
-    {
-        return password;
-    }
-
-    /**
-     * Sets the password of the author.
-     * @param password the new password of the author
-     */
-    public void setPassword(String password)
-    {
-        this.password = password;
-    }
-
-    /**
-     * Gets the number of recipes created by the user.
-     * @return the number of recipes
-     */
     public int getNumRecipes()
     {
         return numRecipes;
@@ -58,9 +35,28 @@ public class Author extends User
      * Sets the number of recipes created by the user.
      * @param numRecipes the new number of recipes
      */
+
     public void setNumRecipes(int numRecipes)
     {
         this.numRecipes = numRecipes;
+    }
+
+    /**
+     * Gets the list of recipes created by the user.
+     * @return the list of recipes
+     */
+    public List<Recipe> getCreatedRecipes()
+    {
+        return createdRecipes;
+    }
+
+    /**
+     * Sets the list of recipes created by the user.
+     * @param createdRecipes the new list of recipes
+     */
+    public void setCreatedRecipes(List<Recipe> createdRecipes)
+    {
+        this.createdRecipes = createdRecipes;
     }
 
 
@@ -69,6 +65,7 @@ public class Author extends User
     {
         return super.toString() + "\n" +
                 "Password: " + password + "\n" +
-                "Number of Recipes: " + numRecipes;
+                "Number of Recipes: " + numRecipes + "\n" +
+                "Created Recipes: " + createdRecipes;
     }
 }

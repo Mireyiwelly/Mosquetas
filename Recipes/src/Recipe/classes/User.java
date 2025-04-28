@@ -1,7 +1,5 @@
 package Recipe.classes;
 
-import java.util.List;
-
 /**
  * Abstract class User that represents a user in the recipe management system.
  * It contains common attributes and methods for all types of users.
@@ -10,7 +8,7 @@ abstract public class User
 {
     protected String name;
     protected char userType; // A for Admin, G for guest, T for Author
-    protected List<Recipe> createdRecipes;
+    protected String password;
 
     /**
      * Constructor for User class.
@@ -39,31 +37,44 @@ abstract public class User
         this.name = name;
     }
 
-
-
     /**
-     * Gets the list of recipes created by the user.
-     * @return the list of recipes
+     * Gets the password of the author.
+     * @return the password of the author
      */
-    public List<Recipe> getCreatedRecipes()
+    public String getPassword()
     {
-        return createdRecipes;
+        return password;
     }
 
     /**
-     * Sets the list of recipes created by the user.
-     * @param createdRecipes the new list of recipes
+     * Sets the password of the author.
+     * @param password the new password of the author
      */
-    public void setCreatedRecipes(List<Recipe> createdRecipes)
+    public void setPassword(String password)
     {
-        this.createdRecipes = createdRecipes;
+        this.password = password;
     }
 
+
+
+    public String EncryptPassword(String password)
+    {
+        StringBuilder encriptedpassword = new StringBuilder();
+        char c;
+
+        for(int i= 0; i < password.length(); i++)
+        {
+            c = password.charAt(i);
+            c++;
+            encriptedpassword.append(c);
+        }
+
+        return encriptedpassword.toString();
+    }
     
     @Override
     public String toString()
     {
-        return "Name: " + name + "\n" + "User Type: " + userType + "\n" +
-                "Created Recipes: " + createdRecipes;
+        return "Name: " + name + "\n" + "User Type: " + userType ;
     }
 }

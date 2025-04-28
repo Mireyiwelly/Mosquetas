@@ -140,6 +140,26 @@ public class Search
         }
     }
 
+
+    public static void SearchByDifficulty(List<Recipe> recipes)
+    {
+        String difficulty;
+        char search = ' ';
+        boolean found = false;
+        do {
+            if(search != 'E' && search != 'M' && search != 'H')
+            {
+                System.out.println("Enter the difficulty");
+                difficulty = sc.nextLine().toUpperCase();
+                search = difficulty.charAt(0);
+            }
+        }
+        while(search != 'E' && search != 'M' && search != 'H');
+
+        for(Recipe r : recipes)
+        {
+            if(r.getDifficultyLevel()== search)
+
     public static void SearchByPreparationTime(List<Recipe> recipes)
     {
         System.out.print("Enter the preparation time: ");
@@ -159,10 +179,16 @@ public class Search
         for (Recipe r : recipes)
         {
             if (r.getPreparationTime() == preparationTime)
+
             {
                 System.out.println(r);
                 found = true;
             }
+        }
+
+        if (!found)
+        {
+            System.out.println("No recipes found for this difficulty " + search);
         }
 
         if (!found)
