@@ -23,32 +23,51 @@ public class Delete
 
     }
 
-    public static void DeleteByName(List<Recipe> recipes, Author userlogged)
+    public static void DeleteByName(List<Recipe> recipes, Author userLogged)
     {
         String deleteRecipe;
-        boolean found;
+        boolean found = false;
+        Recipe recipeToDelete = null;
+
         System.out.println("Enter the name of the recipe to delete: ");
         deleteRecipe = sc.nextLine();
 
-        found = false;
-        //Iterator te permite eliminar elementos mientras la recorre
-        Iterator<Recipe> deletedRecipes = recipes.iterator();
-
-        //hasnext devuelve true si aun hay elementos sin procesar
-        while (deletedRecipes.hasNext() && !found)
+        for (Recipe r : recipes)
         {
-            Recipe recipe = deletedRecipes.next();
-            //no sé si está condición está bien, busca el nombre de la receta, que el autor no sea nul(creo que no hace falta) y el nombre del autor de la receta(un poco invent)
-            if (recipe.getName().equalsIgnoreCase(deleteRecipe) &&
-                    recipe.getAuthor() != null &&
-                    recipe.getAuthor().getName().equalsIgnoreCase(userlogged.getName()))
+            if (!found && r.getName().equalsIgnoreCase(deleteRecipe) &&
+                    r.getAuthor() != null &&
+                    r.getAuthor().getName().equalsIgnoreCase(userLogged.getName()))
             {
-                deletedRecipes.remove();
+                recipeToDelete = r;
                 found = true;
-                System.out.println("Delete recipe");
             }
         }
-        if(!found)
+
+        if(found)
+        {
+            String confirmation = "";
+            do
+            {
+                if(!confirmation.equalsIgnoreCase("Y") &&
+                        !confirmation.equalsIgnoreCase("N"))
+                {
+                    System.out.println("Do you want to delete this recipe? (Y/N)");
+                    confirmation = sc.nextLine();
+                }
+            }
+            while(!confirmation.equalsIgnoreCase("Y") &&
+                    !confirmation.equalsIgnoreCase("N"));
+            if(confirmation.equalsIgnoreCase("Y"))
+            {
+                recipes.remove(recipeToDelete);
+                System.out.println("Recipe deleted.");
+            }
+            else
+            {
+                System.out.println("Operation aborted.");
+            }
+        }
+        else
         {
             System.out.println("Recipe not found");
         }
