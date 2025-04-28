@@ -9,7 +9,9 @@ import java.util.Scanner;
 
 public class Delete
 {
+
     static Scanner sc = new Scanner(System.in);
+
     /**
      * Deletes a recipe from the list of recipes based on the dish type.
      *

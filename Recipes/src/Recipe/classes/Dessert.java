@@ -62,7 +62,6 @@ public class Dessert extends Recipe
         return super.toFile() + ";" + baked + ";" + restingTime + ";" + bakingTime + ";" + servingTemperature;
     }
 
-
     @Override
     public String toString()
     {
