@@ -100,7 +100,7 @@ public class FieldsValidator
     public static boolean isValidSpecialDiet(String diet)
     {
         List<String> validDiets = Arrays.asList("VEGAN", "VEGETARIAN",
-                "LACTOSE_FREE", "PALEO", "KETO");
+                "LACTOSE_FREE", "PALEO", "KETO", "NONE");
 
         return validDiets.contains(diet.toUpperCase());
     }
