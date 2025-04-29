@@ -1,4 +1,5 @@
 package Recipe.main;
+import Recipe.classes.Author;
 import Recipe.classes.Recipe;
 import Recipe.classes.User;
 import Recipe.utils.*;
@@ -9,10 +10,12 @@ public class Main
 {
     static List<Recipe> recipes;
     static List<User> users;
+    static Author currentUser = null;
 
     public static void main(String[] args)
     {
         users = ReadFile.ReadUserFile();
+        recipes = ReadFile.ReadRecipeFile();
         LoginOptions optionUser;
         AppMenuOptions appOption;
         AdminOptions adminOption;
@@ -27,8 +30,11 @@ public class Main
             {
                 case AUTHOR:
                     System.out.println("Author login selected.");
-                    Login.LoginAutor(users);
-                    appOption = Menu.AppOptions();
+                    currentUser = Login.LoginAutor(users);
+                    if(currentUser != null)
+                        appOption = Menu.AppOptions();
+                    else
+                        break;
                     switch (appOption)
                     {
                         case ADD_RECIPE:
@@ -94,6 +100,53 @@ public class Main
                 case GUEST:
                     System.out.println("Guest login selected.");
                     guestOption = Menu.GuestMenu();
+                    switch (guestOption)
+                    {
+                        case SEARCH:
+                            System.out.println("Search recipe selected.");
+                            searchOption = Menu.SearchMenu();
+                            switch(searchOption)
+                            {
+                                case DATE:
+                                    System.out.println("Search recipe by date selected.");
+                                    Search.SearchByPublicationDate(recipes);
+                                    break;
+                                case DINERS:
+                                    System.out.println("Search recipe by diners selected.");
+                                    Search.SearchByNumberOfDiners(recipes);
+                                    break;
+                                case DIET:
+                                    System.out.println("Search recipe by diet selected.");
+                                    Search.SearchByDiet(recipes);
+                                    break;
+                                case DISH:
+                                    System.out.println("Search recipe by dish selected.");
+                                    Search.SearchByDishType(recipes);
+                                    break;
+                                case NAME:
+                                    System.out.println("Search recipe by name selected.");
+                                    Search.SearchByName(recipes);
+                                    break;
+                                case DIFFICULTY:
+                                    System.out.println("Search recipe by difficulty selected.");
+                                    Search.SearchByDifficulty(recipes);
+                                    break;
+                                case INGREDIENTS:
+                                    System.out.println("Search recipe by ingredients selected.");
+                                    Search.SearchByIngredients(recipes);
+                                    break;
+                                case PREPARATION_TIME:
+                                    System.out.println("Search recipe by preparation time selected.");
+                                    //Implement search by preparation time method here
+                                    break;
+                                case EXIT:
+                                    System.out.println("Exiting search by.");
+                                    break;
+                                default:
+                                    System.out.println("Invalid option selected.");
+                            }
+                        break;
+                    }
                     break;
                 case NEW_AUTHOR:
                     System.out.println("New author account creation selected.");
