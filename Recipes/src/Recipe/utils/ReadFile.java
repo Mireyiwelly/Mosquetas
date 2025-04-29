@@ -125,11 +125,6 @@ public class ReadFile
                         users.add(new Admin(name, password));
                         break;
                     }
-                    case 'G' :
-                    {
-                        users.add(new Guest(name));
-                        break;
-                    }
                     case 'T' :
                     {
                         numRecipes = Integer.parseInt(userData[2]);
