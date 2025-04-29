@@ -127,7 +127,7 @@ public class ReadFile
                     numRecipes = Integer.parseInt(userData[1]);
                     password = userData[2];
 
-                    users.add(new Admin(name, password));
+                    users.add(new Author(name, numRecipes, password));
                 }
             }
         }
