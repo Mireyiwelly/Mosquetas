@@ -169,4 +169,105 @@ public class Search
         }
 
     }
+
+    public static void SearchByDiet(List<Recipe> recipes)
+    {
+        int diet;
+        boolean found = false;
+        SpecialDiets choosen = null;
+
+        System.out.println("Select a diet: ");
+        System.out.println("1.VEGAN,\n" +
+                "    2.VEGETARIAN,\n" +
+                "    3.CELIAC,\n" +
+                "    4.KETO,\n" +
+                "    5.PALEO,\n" +
+                "    6.LACTOSE_FREE");
+
+        try {
+            diet = sc.nextInt();
+        } catch (Exception e) {
+            System.out.println("Invalid input. Please enter a valid number.");
+            sc.nextLine();
+            return;
+        }
+        switch (diet)
+        {
+            case 1:
+                choosen = SpecialDiets.VEGAN;
+                break;
+            case 2:
+                choosen = SpecialDiets.VEGETARIAN;
+                break;
+            case 3:
+                choosen = SpecialDiets.CELIAC;
+                break;
+            case 4:
+                choosen = SpecialDiets.KETO;
+                break;
+            case 5:
+                choosen = SpecialDiets.PALEO;
+                break;
+            case 6:
+                choosen = SpecialDiets.LACTOSE_FREE;
+                break;
+            default:
+                System.out.println("Invalid option selected.");
+                break;
+        }
+
+        for(Recipe r : recipes)
+        {
+            if(r.getSpecialDiet().equals(choosen))
+            {
+                found = true;
+                System.out.println(r);
+                System.out.println();
+            }
+        }
+        if (!found)
+        {
+            System.out.println("No recipes found");
+        }
+    }
+
+    public static void SearchByIngredients(List<Recipe> recipes)
+    {
+        String ingredients;
+        boolean foundIngredients = true, foundRecipes = false;
+
+        System.out.println("Introduce all the ingredients separated by a ';'");
+        ingredients = sc.nextLine();
+
+        String[] userIngredients = ingredients.toLowerCase().split(";");
+        Arrays.sort(userIngredients);
+
+        for(Recipe r: recipes)
+        {
+            List<Ingredient> recipeIngredients = r.getIngredients();
+            String[] recipeIngredientName = new String[recipeIngredients.size()];
+            for (int i = 0; i < recipeIngredients.size(); i++) {
+                recipeIngredientName[i] = recipeIngredients.get(i).getName().toLowerCase();
+            }
+            if(userIngredients.length >= recipeIngredients.size())
+            {
+                for (int i = 0; i < userIngredients.length; i++) {
+                    for (int j = 0; j < recipeIngredientName.length; j++) {
+                        if (!userIngredients[i].equals(recipeIngredientName[j])) {
+                            foundIngredients = false;
+                        }
+                    }
+                }
+                if (foundIngredients)
+                {
+                    System.out.println(r);
+                    foundRecipes = true;
+                }
+            }
+        }
+        if (!foundRecipes) {
+            System.out.println("No recipes found that can be made with the given ingredients.");
+        }
+
+    }
 }
