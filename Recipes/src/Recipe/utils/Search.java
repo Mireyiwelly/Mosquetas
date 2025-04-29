@@ -7,6 +7,62 @@ public class Search
 {
     static Scanner sc = new Scanner(System.in);
 
+    /**
+     * Manages the search functionality for recipes.
+     * This method displays a menu for the user to select a search option
+     * and calls the corresponding search method.
+     * @param recipes The list of recipes to search from.
+     */
+    public static void ManageSearch(List<Recipe> recipes)
+    {
+        SearchOptions searchOption;
+        do
+        {
+            searchOption = Menu.SearchMenu();
+            switch(searchOption)
+            {
+                case DATE:
+                    System.out.println("Search recipe by date selected.");
+                    Search.SearchByPublicationDate(recipes);
+                    break;
+                case DINERS:
+                    System.out.println("Search recipe by diners selected.");
+                    Search.SearchByNumberOfDiners(recipes);
+                    break;
+                case DIET:
+                    System.out.println("Search recipe by diet selected.");
+                    Search.SearchByDiet(recipes);
+                    break;
+                case DISH:
+                    System.out.println("Search recipe by dish selected.");
+                    Search.SearchByDishType(recipes);
+                    break;
+                case NAME:
+                    System.out.println("Search recipe by name selected.");
+                    Search.SearchByName(recipes);
+                    break;
+                case DIFFICULTY:
+                    System.out.println("Search recipe by difficulty selected.");
+                    Search.SearchByDifficulty(recipes);
+                    break;
+                case INGREDIENTS:
+                    System.out.println("Search recipe by ingredients selected.");
+                    Search.SearchByIngredients(recipes);
+                    break;
+                case PREPARATION_TIME:
+                    System.out.println("Search recipe by preparation time selected.");
+                    Search.SearchByPreparationTime(recipes);
+                    break;
+                case EXIT:
+                    System.out.println("Exiting search by.");
+                    break;
+                default:
+                    System.out.println("Invalid option selected.");
+            }
+        }
+        while(searchOption != SearchOptions.EXIT);
+
+    }
     public static void SearchByPublicationDate(List<Recipe> recipes)
     {
         LocalDate searchDate = null;
