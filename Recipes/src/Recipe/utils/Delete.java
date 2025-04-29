@@ -4,13 +4,13 @@ import Recipe.classes.Author;
 import Recipe.classes.Recipe;
 import Recipe.classes.User;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
 public class Delete
 {
-
     static Scanner sc = new Scanner(System.in);
 
     /**
@@ -18,9 +18,47 @@ public class Delete
      *
      * @param recipes the list of recipes
      */
-    public static void DeleteRecipeByDishType(List<Recipe> recipes)
+    public static void DeleteRecipeByDishType(List<Recipe> recipes, Author userLogged)
     {
+        char recipeType;
+        List<Recipe> userRecipes = userLogged.getCreatedRecipes();
+        List<Recipe> filteredRecipes = new ArrayList<Recipe>();
 
+        do {
+            System.out.println("Enter the dish type to delete: ");
+            System.out.println("1. Appetizer");
+            System.out.println("2. Cocktail");
+            System.out.println("3. Main Course");
+            System.out.println("4. Dessert");
+            System.out.print("Enter the type (A - C - M - D: ");
+
+            recipeType = Character.toUpperCase(sc.next().charAt(0));
+            sc.nextLine();
+        }
+        while(recipeType != 'A' && recipeType != 'C' && recipeType != 'M' &&
+                recipeType != 'D');
+
+
+        for(Recipe r : userRecipes)
+        {
+            if(r.getDishType() == recipeType)
+            {
+                filteredRecipes.add(r);
+            }
+        }
+        if(filteredRecipes.isEmpty())
+        {
+            System.out.println("You have no recipes of this type.");
+        }
+        else
+        {
+            System.out.println("You have " + filteredRecipes.size() + " recipes of this type.");
+            for(Recipe r : filteredRecipes)
+            {
+                System.out.println(r);
+            }
+            DeleteByName(recipes, userLogged);
+        }
     }
 
     public static void DeleteByName(List<Recipe> recipes, Author userLogged)
@@ -155,6 +193,5 @@ public class Delete
             }
         }
     }
-
 }
 
