@@ -317,19 +317,15 @@ public class Search
         }
     }
 
-    public static void SearchRecipeByAuthor(List<Recipe> recipes)
+    public static void SearchRecipe(List<Recipe> recipes)
     {
-        System.out.println("Enter the author's name");
-        String authorName = sc.nextLine();
+        System.out.println("--ALL RECIPES--");
 
         boolean found = false;
         for(Recipe r: recipes)
         {
-            if(!found && r.getAuthor().getName().equalsIgnoreCase(authorName))
-            {
-                System.out.println(r);
+                System.out.println("Author: " + r.getAuthor().getName() + ", Name: " + r.getName());
                 found = true;
-            }
         }
         if(!found)
         {
