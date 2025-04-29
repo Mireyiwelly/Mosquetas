@@ -114,28 +114,20 @@ public class ReadFile
                 int numRecipes;
                 String password;
 
-                char userType = userData[0].charAt(0);;
-                name = userData[1];
-                switch (userType)
+
+                name = userData[0];
+
+                if(userData.length == 2)
                 {
-                    case 'A' :
-                    {
-                        password = userData[2];
+                    password = userData[1];
+                    users.add(new Admin(name, password));
+                }
+                else
+                {
+                    numRecipes = Integer.parseInt(userData[1]);
+                    password = userData[2];
 
-                        users.add(new Admin(name, password));
-                        break;
-                    }
-                    case 'T' :
-                    {
-                        numRecipes = Integer.parseInt(userData[2]);
-                        password = userData[3];
-
-                        users.add(new Author(name, numRecipes,password));
-                        break;
-                    }
-                    default:
-                        System.err.println("Unknown user: " + userType);
-                        break;
+                    users.add(new Author(name, numRecipes, password));
                 }
             }
         }

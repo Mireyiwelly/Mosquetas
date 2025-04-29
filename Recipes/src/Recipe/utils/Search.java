@@ -360,11 +360,13 @@ public class Search
     {
         boolean found = false;
 
+
         System.out.println("All users");
         for(Author u: users)
         {
             System.out.println(u.getName());
             System.out.println(u.getNumRecipes());
+            System.out.println();
             found = true;
         }
 
@@ -374,19 +376,15 @@ public class Search
         }
     }
 
-    public static void SearchRecipeByAuthor(List<Recipe> recipes)
+    public static void ShowRecipe(List<Recipe> recipes)
     {
-        System.out.println("Enter the author's name");
-        String authorName = sc.nextLine();
+        System.out.println("--ALL RECIPES--");
 
         boolean found = false;
         for(Recipe r: recipes)
         {
-            if(!found && r.getAuthor().getName().equalsIgnoreCase(authorName))
-            {
-                System.out.println(r);
+                System.out.println("Author: " + r.getAuthor().getName() + ", Name: " + r.getName());
                 found = true;
-            }
         }
         if(!found)
         {
