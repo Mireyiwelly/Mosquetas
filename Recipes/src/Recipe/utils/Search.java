@@ -169,4 +169,22 @@ public class Search
             System.out.println("No recipes found for this preparation time.");
         }
     }
+
+    public static void ShowUsers(List<User> users)
+    {
+        boolean found = false;
+
+        System.out.println("All users");
+        for(User u: users)
+        {
+            System.out.println(u);
+            found = true;
+        }
+
+        if(!found)
+        {
+            System.out.println("No users found");
+        }
+
+    }
 }
