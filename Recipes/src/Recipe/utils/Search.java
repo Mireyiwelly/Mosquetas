@@ -300,14 +300,17 @@ public class Search
         }
     }
   
-    public static void ShowUsers(List<User> users)
+    public static void ShowUsers(List<Author> users)
     {
         boolean found = false;
 
-        System.out.println("--ALL USERS--");
-        for(User u: users)
+
+        System.out.println("All users");
+        for(Author u: users)
         {
-            System.out.println(u);
+            System.out.println(u.getName());
+            System.out.println(u.getNumRecipes());
+            System.out.println();
             found = true;
         }
 
