@@ -456,13 +456,14 @@ public class CreateRecipe
             System.out.println("LACTOSE_FREE");
             System.out.println("PALEO");
             System.out.println("KETO");
+            System.out.println("NONE");
             System.out.println("Enter the special diet: ");
             specialDietInput = sc.nextLine().toUpperCase();
 
             if(!FieldsValidator.isValidSpecialDiet(specialDietInput))
             {
                 System.out.println("The special diet must be vegan, vegetarian," +
-                        " lactose_free, paleo or keto.");
+                        " lactose_free, paleo, keto or none.");
             }
             else
             {
