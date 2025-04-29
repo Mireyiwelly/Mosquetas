@@ -50,6 +50,7 @@ public class Menu
         System.out.println("2. Modify Recipe");
         System.out.println("3. Delete Recipe");
         System.out.println("4. Search Recipe");
+        System.out.println("5. Log Out");
 
         System.out.println("Please select an option:");
         appOption = AppMenuOptions.values()[sc.nextInt() - 1];
