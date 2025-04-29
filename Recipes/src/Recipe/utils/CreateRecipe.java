@@ -42,7 +42,7 @@ public class CreateRecipe
         // Ask the user for the unit of the ingredient until valid input is provided.
         do
         {
-            System.out.println("Enter the unit of the ingredient(g - l - ml - etc.):");
+            System.out.println("Enter the unit of the ingredient(g - l - ml - kg, cl, pcs):");
             unit = sc.nextLine();
             if(FieldsValidator.isEmpty(unit))
             {
@@ -50,7 +50,7 @@ public class CreateRecipe
             }
             if(!FieldsValidator.isValidUnit(unit))
             {
-                System.out.println("The unit must be g, l, ml, etc.");
+                System.out.println("The unit must be g, l, ml, kg, cl, pcs");
             }
         }
         while (FieldsValidator.isEmpty(unit) || !FieldsValidator.isValidUnit(unit));
@@ -384,7 +384,8 @@ public class CreateRecipe
         int numIngredients = -1;
 
         // Ask the user for recipe details until valid input is provided.
-        System.out.println(" --- RECIPE --- ");
+
+        System.out.println(" --- CREATE NEW RECIPE --- ");
         // Ask the user for the name of the recipe until valid input is provided.
         do
         {
@@ -449,12 +450,19 @@ public class CreateRecipe
         // Ask the user for the special diet until valid input is provided.
         do
         {
+            System.out.println("SPECIAL DIETS:");
+            System.out.println("VEGAN");
+            System.out.println("VEGETARIAN");
+            System.out.println("LACTOSE_FREE");
+            System.out.println("PALEO");
+            System.out.println("KETO");
             System.out.println("Enter the special diet: ");
             specialDietInput = sc.nextLine().toUpperCase();
 
             if(!FieldsValidator.isValidSpecialDiet(specialDietInput))
             {
-                System.out.println("The special diet must be vegan, vegetarian, lactose-free, paleo or keto.");
+                System.out.println("The special diet must be vegan, vegetarian," +
+                        " lactose_free, paleo or keto.");
             }
             else
             {
@@ -464,7 +472,7 @@ public class CreateRecipe
         // Ask the user for the publication date until valid input is provided.
         do
         {
-            System.out.println("Enter the publication date: ");
+            System.out.println("Enter the publication date (DD-MM-YYYY): ");
             publicationDateInput = sc.nextLine();
 
             try {
@@ -478,7 +486,7 @@ public class CreateRecipe
         // Ask the user for the preparation time until valid input is provided.
         do
         {
-            System.out.println("Enter the preparation time: ");
+            System.out.println("Enter the preparation time (minutes): ");
             while (!sc.hasNextInt())
             {
                 sc.next();
@@ -496,7 +504,9 @@ public class CreateRecipe
         do
         {
             System.out.println("Enter the preparation description: ");
+            sc.nextLine();
             preparation = sc.nextLine();
+
             if (FieldsValidator.isEmpty(preparation))
             {
                 System.out.println("The preparation description cannot be empty.");
@@ -562,25 +572,25 @@ public class CreateRecipe
                 System.out.println("Appetizer selected.");
                 createAppetizer(recipes, author, name, numDiners, preparation, ingredients, calories,
                         difficultyLevel, specialDiets, publicationDate, preparationTime);
-                System.out.print("--- RECIPE APPETIZER CREATED ---");
+                System.out.println("--- RECIPE APPETIZER CREATED ---");
                 break;
             case 2:
                 System.out.println("Cocktail selected.");
                 createCocktail(recipes, author, name, numDiners, preparation, ingredients, calories,
                         difficultyLevel, specialDiets, publicationDate, preparationTime);
-                System.out.print("--- RECIPE COCKTAIL CREATED ---");
+                System.out.println("--- RECIPE COCKTAIL CREATED ---");
                 break;
             case 3:
                 System.out.println("Main Course selected.");
                 createMainCourse(recipes, author, name, numDiners, preparation, ingredients, calories,
                         difficultyLevel, specialDiets, publicationDate, preparationTime);
-                System.out.print("--- RECIPE MAIN COURSE CREATED ---");
+                System.out.println("--- RECIPE MAIN COURSE CREATED ---");
                 break;
             case 4:
                 System.out.println("Dessert selected.");
                 createDessert(recipes, author, name, numDiners, preparation, ingredients, calories,
                         difficultyLevel, specialDiets, publicationDate, preparationTime);
-                System.out.print("--- RECIPE DESSERT CREATED ---");
+                System.out.println("--- RECIPE DESSERT CREATED ---");
                 break;
         }
     }

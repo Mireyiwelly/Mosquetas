@@ -1,15 +1,16 @@
 package Recipe.utils;
 
+import Recipe.classes.Author;
 import Recipe.classes.Recipe;
 import Recipe.classes.User;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
 public class Delete
 {
-
     static Scanner sc = new Scanner(System.in);
 
     /**
@@ -17,26 +18,96 @@ public class Delete
      *
      * @param recipes the list of recipes
      */
-    public static void DeleteRecipeByDishType(List<Recipe> recipes)
+    public static void DeleteRecipeByDishType(List<Recipe> recipes, Author userLogged)
     {
+        char recipeType;
+        List<Recipe> userRecipes = userLogged.getCreatedRecipes();
+        List<Recipe> filteredRecipes = new ArrayList<Recipe>();
 
+        do {
+            System.out.println("Enter the dish type to delete: ");
+            System.out.println("1. Appetizer");
+            System.out.println("2. Cocktail");
+            System.out.println("3. Main Course");
+            System.out.println("4. Dessert");
+            System.out.print("Enter the type (A - C - M - D: ");
+
+            recipeType = Character.toUpperCase(sc.next().charAt(0));
+            sc.nextLine();
+        }
+        while(recipeType != 'A' && recipeType != 'C' && recipeType != 'M' &&
+                recipeType != 'D');
+
+
+        for(Recipe r : userRecipes)
+        {
+            if(r.getDishType() == recipeType)
+            {
+                filteredRecipes.add(r);
+            }
+        }
+        if(filteredRecipes.isEmpty())
+        {
+            System.out.println("You have no recipes of this type.");
+        }
+        else
+        {
+            System.out.println("You have " + filteredRecipes.size() + " recipes of this type.");
+            for(Recipe r : filteredRecipes)
+            {
+                System.out.println(r);
+            }
+            DeleteByName(recipes, userLogged);
+        }
     }
 
-    public static void DeleteByName(List<Recipe> recipes, String nameToDelete, String nameUser)
+    public static void DeleteByName(List<Recipe> recipes, Author userLogged)
     {
-        //Iterator te permite eliminar elementos mientras la recorre
-        Iterator<Recipe> deletedRecipes = recipes.iterator();
-        //este while te elimina todos los nombres que coincidan (No deberia de haber dos recetas con el mismo nombre)
-        while (deletedRecipes.hasNext())
+        String deleteRecipe;
+        boolean found = false;
+        Recipe recipeToDelete = null;
+
+        System.out.println("Enter the name of the recipe to delete: ");
+        deleteRecipe = sc.nextLine();
+
+        for (Recipe r : recipes)
         {
-            Recipe recipe = deletedRecipes.next();
-            //no sé si está condición está bien, busca el nombre de la receta, que el autor no sea nul(creo que no hace falta) y el nombre del autor de la receta(un poco invent)
-            if (recipe.getName().equalsIgnoreCase(nameToDelete) &&
-                    recipe.getAuthor() != null &&
-                    recipe.getAuthor().getName().equalsIgnoreCase(nameUser))
+            if (!found && r.getName().equalsIgnoreCase(deleteRecipe) &&
+                    r.getAuthor() != null &&
+                    r.getAuthor().getName().equalsIgnoreCase(userLogged.getName()))
             {
-                deletedRecipes.remove();
+                recipeToDelete = r;
+                found = true;
             }
+        }
+
+        if(found)
+        {
+            String confirmation = "";
+            do
+            {
+                if(!confirmation.equalsIgnoreCase("Y") &&
+                        !confirmation.equalsIgnoreCase("N"))
+                {
+                    System.out.println("Do you want to delete this recipe? (Y/N)");
+                    confirmation = sc.nextLine();
+                }
+            }
+            while(!confirmation.equalsIgnoreCase("Y") &&
+                    !confirmation.equalsIgnoreCase("N"));
+            if(confirmation.equalsIgnoreCase("Y"))
+            {
+                recipes.remove(recipeToDelete);
+                System.out.println("Recipe deleted.");
+            }
+            else
+            {
+                System.out.println("Operation aborted.");
+            }
+        }
+        else
+        {
+            System.out.println("Recipe not found");
         }
     }
 
@@ -86,8 +157,7 @@ public class Delete
         }
     }
 
-    public static void DeleteUser(List<User> users)
-    {
+    public static void DeleteUser(List<User> users) {
         String userName;
         boolean found = false;
         String confirmation = "";
@@ -95,41 +165,33 @@ public class Delete
         System.out.println("Enter user name: ");
         userName = sc.nextLine();
 
-        if(userName.equalsIgnoreCase("anonimo"))
-        {
+        if (userName.equalsIgnoreCase("anonimo")) {
             System.out.println("You can't delete this author. Sorry");
-        }
-        else
-        {
-            for(int i = 0; i < users.size(); i++)
-            {
+        } else {
+            for (int i = 0; i < users.size(); i++) {
                 User u = users.get(i);
-                if(u.getName().equalsIgnoreCase(userName))
-                {
+                if (u.getName().equalsIgnoreCase(userName)) {
                     found = true;
                     do {
-                        if(!confirmation.equalsIgnoreCase("Y") &&
-                                !confirmation.equalsIgnoreCase("N"))
-                        {
+                        if (!confirmation.equalsIgnoreCase("Y") &&
+                                !confirmation.equalsIgnoreCase("N")) {
                             System.out.println("Do you want to delete this user? (Y/N)");
                             confirmation = sc.nextLine();
                         }
                     }
-                    while(!confirmation.equalsIgnoreCase("Y") &&
+                    while (!confirmation.equalsIgnoreCase("Y") &&
                             !confirmation.equalsIgnoreCase("N"));
-                    if(confirmation.equalsIgnoreCase("Y"))
-                    {
+                    if (confirmation.equalsIgnoreCase("Y")) {
                         users.remove(i);
                         System.out.println("User deleted.");
                         i--;
                     }
                 }
             }
-            if(!found)
-            {
+            if (!found) {
                 System.out.println("No user found");
             }
         }
-
     }
+}
 
