@@ -27,7 +27,7 @@ public class Main
             {
                 case AUTHOR:
                     System.out.println("Author login selected.");
-                    // Implement author login functionality here
+                    Login.LoginAutor(users);
                     appOption = Menu.AppOptions();
                     switch (appOption)
                     {
@@ -58,7 +58,7 @@ public class Main
                                     break;
                                 case DIET:
                                     System.out.println("Search recipe by diet selected.");
-                                    
+                                    Search.SearchByDiet(recipes);
                                     break;
                                 case DISH:
                                     System.out.println("Search recipe by dish selected.");
@@ -74,7 +74,7 @@ public class Main
                                     break;
                                 case INGREDIENTS:
                                     System.out.println("Search recipe by ingredients selected.");
-                                    //Implement search by ingredients method here
+                                    Search.SearchByIngredients(recipes);
                                     break;
                                 case PREPARATION_TIME:
                                     System.out.println("Search recipe by preparation time selected.");
@@ -97,7 +97,7 @@ public class Main
                     break;
                 case NEW_AUTHOR:
                     System.out.println("New author account creation selected.");
-                    // Implement new author account creation functionality here
+                    Login.SingInAutor(users);
                     break;
                 case ADMIN:
                     System.out.println("Admin login successful!");
