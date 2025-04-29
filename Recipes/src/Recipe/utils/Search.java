@@ -316,4 +316,24 @@ public class Search
             System.out.println("No users found");
         }
     }
+
+    public static void SearchRecipeByAuthor(List<Recipe> recipes)
+    {
+        System.out.println("Enter the author's name");
+        String authorName = sc.nextLine();
+
+        boolean found = false;
+        for(Recipe r: recipes)
+        {
+            if(!found && r.getAuthor().getName().equalsIgnoreCase(authorName))
+            {
+                System.out.println(r);
+                found = true;
+            }
+        }
+        if(!found)
+        {
+            System.out.println("No recipes found");
+        }
+    }
 }
