@@ -83,6 +83,6 @@ abstract public class User
     @Override
     public String toString()
     {
-        return "Name: " + name + "\n";
+        return "Name: " + name;
     }
 }

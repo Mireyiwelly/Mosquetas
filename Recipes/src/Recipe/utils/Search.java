@@ -304,7 +304,7 @@ public class Search
     {
         boolean found = false;
 
-        System.out.println("All users");
+        System.out.println("--ALL USERS--");
         for(User u: users)
         {
             System.out.println(u);

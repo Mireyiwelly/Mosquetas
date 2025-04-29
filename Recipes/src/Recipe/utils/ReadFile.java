@@ -114,7 +114,7 @@ public class ReadFile
                 int numRecipes;
                 String password;
 
-                //char userType = userData[0].charAt(0);
+
                 name = userData[0];
 
                 if(userData.length == 2)
