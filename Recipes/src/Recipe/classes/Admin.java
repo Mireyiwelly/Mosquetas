@@ -23,4 +23,11 @@ public class Admin extends User
     {
         return super.toFile() + ";" + password;
     }
+
+    @Override
+    public String toString()
+    {
+        return super.toString() + "\n" +
+                "Password: " + password;
+    }
 }
