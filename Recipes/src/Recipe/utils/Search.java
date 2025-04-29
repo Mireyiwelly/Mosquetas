@@ -317,7 +317,7 @@ public class Search
         }
     }
 
-    public static void SearchRecipe(List<Recipe> recipes)
+    public static void ShowRecipe(List<Recipe> recipes)
     {
         System.out.println("--ALL RECIPES--");
 
