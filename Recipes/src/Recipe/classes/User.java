@@ -7,7 +7,7 @@ package Recipe.classes;
 abstract public class User
 {
     protected String name;
-    protected char userType; // A for Admin, G for guest, T for Author
+
     protected String password;
 
     /**
@@ -58,7 +58,7 @@ abstract public class User
 
     public String toFile()
     {
-        return  userType + ";" + name + ";";
+        return  name + ";";
     }
 
 
@@ -83,6 +83,6 @@ abstract public class User
     @Override
     public String toString()
     {
-        return "Name: " + name + "\n" + "User Type: " + userType ;
+        return "Name: " + name;
     }
 }

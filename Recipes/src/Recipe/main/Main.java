@@ -166,10 +166,10 @@ public class Main
                             Delete.DeleteUser(users);
                             break;
                         case SHOW_USERS:
-                            //
+                            Search.ShowUsers(users);
                             break;
                         case SHOW_RECIPES:
-                            Search.SearchRecipeByAuthor(recipes);
+                            Search.ShowRecipe(recipes);
                             break;
                         case LOGOUT:
                             //
