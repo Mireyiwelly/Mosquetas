@@ -169,7 +169,7 @@ public class Main
                             //
                             break;
                         case SHOW_RECIPES:
-                            //
+                            Search.SearchRecipeByAuthor(recipes);
                             break;
                         case LOGOUT:
                             //
