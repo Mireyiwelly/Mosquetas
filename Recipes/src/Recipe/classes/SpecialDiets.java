@@ -6,5 +6,6 @@ public enum SpecialDiets {
     CELIAC,
     KETO,
     PALEO,
-    LACTOSE_FREE
+    LACTOSE_FREE,
+    NONE
 }
