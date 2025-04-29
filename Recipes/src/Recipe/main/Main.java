@@ -4,6 +4,7 @@ import Recipe.classes.Recipe;
 import Recipe.classes.User;
 import Recipe.utils.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main
@@ -17,6 +18,16 @@ public class Main
         users = ReadFile.ReadUserFile();
         recipes = ReadFile.ReadRecipeFile();
         LoginOptions optionUser;
+        List<Author> authors;
+        authors = new ArrayList<>();
+
+        for(User user : users)
+        {
+            if(user instanceof Author)
+            {
+                authors.add((Author) user);
+            }
+        }
 
         do
         {
@@ -37,7 +48,7 @@ public class Main
                     break;
                 case ADMIN:
                     System.out.println("Admin login successful!");
-                    RecipeManagment.ManageAdmin(users, recipes);
+                    RecipeManagment.ManageAdmin(authors, recipes);
                     break;
                 case EXIT:
                     System.out.println("Exiting the application.");

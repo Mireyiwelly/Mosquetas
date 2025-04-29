@@ -72,7 +72,7 @@ public class RecipeManagment
         while(option != GuestOptions.LOGOUT);
     }
 
-    public static void ManageAdmin(List<User> users, List<Recipe> recipes)
+    public static void ManageAdmin(List<Author> users, List<Recipe> recipes)
     {
         AdminOptions option;
         do

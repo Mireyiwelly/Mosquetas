@@ -183,7 +183,7 @@ public class Delete
         }
     }
 
-    public static void DeleteUser(List<User> users) {
+    public static void DeleteUser(List<Author> users) {
         String userName;
         boolean found = false;
         String confirmation = "";
