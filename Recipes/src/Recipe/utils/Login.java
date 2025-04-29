@@ -82,7 +82,7 @@ public class Login {
 
                 if(!password.matches(regex))
                     System.out.println("Password must be minimus 8 characters and has to contains at least" +
-                            "one upperccase, one lowercase, and one number");
+                            "one upperccase, one lowercase,  one number, one special character and no whitespace");
 
             }
             while(!password.matches(regex));
