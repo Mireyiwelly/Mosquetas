@@ -1,5 +1,7 @@
 package Recipe.utils;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -17,15 +19,16 @@ public class FieldsValidator
         return field == null || field.trim().isEmpty();
     }
 
+
     /**
      * Validates if a number is positive.
      *
      * @param number the number to validate
      * @return true if the number is positive, false otherwise
      */
-    public static boolean isPositive(int number)
+    public static boolean isPositive(Number number)
     {
-        return number > 0;
+        return number.doubleValue() > 0;
     }
     /**
      * Validates if a date is in the correct format (DD-MM-YYYY).
@@ -33,45 +36,21 @@ public class FieldsValidator
      * @param date the date to validate
      * @return true if the date is in the correct format, false otherwise
      */
-    public static boolean isValidDate(String date)
+    public static LocalDate isValidDate(String date)
     {
-        String regex = "^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\\d{4}$";
-        boolean correct = true;
-        if(date.matches(regex))
+        if(date == null || date.trim().isEmpty())
         {
-            String[] dateParts = date.split("-");
-            int day = Integer.parseInt(dateParts[0]);
-            int month = Integer.parseInt(dateParts[1]);
-            int year = Integer.parseInt(dateParts[2]);
-
-            if(month == 2)
-            {
-                if((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
-                {
-                    if(day > 29)
-                    {
-                        correct = false;
-                    }
-                }
-                else
-                {
-                    if(day > 28)
-                    {
-                        correct = false;
-                    }
-                }
-            }
-            else if((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)
-            {
-                correct = false;
-            }
-            else if(month > 12 || day > 31)
-            {
-                correct = false;
-            }
+            return null;
         }
-
-        return correct;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        try
+        {
+            return LocalDate.parse(date, formatter);
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
     }
 
     /**
@@ -105,6 +84,9 @@ public class FieldsValidator
         validLevels.add('E');
         validLevels.add('M');
         validLevels.add('H');
+        validLevels.add('e');
+        validLevels.add('m');
+        validLevels.add('h');
 
         return validLevels.contains(difficultyLevel);
     }
@@ -117,11 +99,15 @@ public class FieldsValidator
      */
     public static boolean isValidSpecialDiet(String diet)
     {
-        diet = diet.toLowerCase();
-        List<String> validDiets = Arrays.asList("vegan", "vegetarian",
-                "lactose-free", "paleo", "keto");
+        List<String> validDiets = Arrays.asList("VEGAN", "VEGETARIAN",
+                "LACTOSE_FREE", "PALEO", "KETO");
 
-        return validDiets.contains(diet);
+        return validDiets.contains(diet.toUpperCase());
+    }
+
+
+    public static boolean isValidYesNo(String input) {
+        return input.equalsIgnoreCase("Y") || input.equalsIgnoreCase("N");
     }
 
 }
