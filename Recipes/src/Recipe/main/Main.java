@@ -166,7 +166,7 @@ public class Main
                             Delete.DeleteUser(users);
                             break;
                         case SHOW_USERS:
-                            //
+                            Search.ShowUsers(users);
                             break;
                         case SHOW_RECIPES:
                             //
