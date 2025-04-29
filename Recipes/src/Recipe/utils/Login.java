@@ -87,6 +87,7 @@ public class Login {
             }
             while(!password.matches(regex));
             users.add(new Author(name,0 ,password));
+            
         }
     }
 
