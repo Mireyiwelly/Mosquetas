@@ -37,7 +37,7 @@ public class Main
                             break;
                         case MODIFY_RECIPE:
                             System.out.println("Modify recipe selected.");
-                            // Implement modify recipe functionality here
+                            Modify.UpdateRecipe(recipes,currentUser);
                             break;
                         case DELETE_RECIPE:
                             System.out.println("Delete recipe selected.");
