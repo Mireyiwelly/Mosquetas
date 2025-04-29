@@ -84,7 +84,7 @@ public class Main
                                     break;
                                 case PREPARATION_TIME:
                                     System.out.println("Search recipe by preparation time selected.");
-                                    //Implement search by preparation time method here
+                                    Search.SearchByPreparationTime(recipes);
                                     break;
                                 case EXIT:
                                     System.out.println("Exiting search by.");
