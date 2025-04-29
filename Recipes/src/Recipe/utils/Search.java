@@ -298,6 +298,22 @@ public class Search
         if (!foundRecipes) {
             System.out.println("No recipes found that can be made with the given ingredients.");
         }
+    }
+  
+    public static void ShowUsers(List<User> users)
+    {
+        boolean found = false;
 
+        System.out.println("All users");
+        for(User u: users)
+        {
+            System.out.println(u);
+            found = true;
+        }
+
+        if(!found)
+        {
+            System.out.println("No users found");
+        }
     }
 }
