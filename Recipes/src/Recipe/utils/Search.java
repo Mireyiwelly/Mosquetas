@@ -320,7 +320,7 @@ public class Search
     public static void SearchByIngredients(List<Recipe> recipes)
     {
         String ingredients;
-        boolean foundIngredients = true, foundRecipes = false;
+        boolean foundIngredients = false, foundRecipes = false;
 
         System.out.println("Introduce all the ingredients separated by a ';'");
         ingredients = sc.nextLine();
@@ -335,20 +335,22 @@ public class Search
             for (int i = 0; i < recipeIngredients.size(); i++) {
                 recipeIngredientName[i] = recipeIngredients.get(i).getName().toLowerCase();
             }
-            if(userIngredients.length >= recipeIngredients.size())
+
+            List<String> userIngredient = Arrays.asList(userIngredients);
+            List<String> recipeIngredient = Arrays.asList(recipeIngredientName);
+
+            foundIngredients = false;
+            if(userIngredient.size() >= recipeIngredient.size())
             {
-                for (int i = 0; i < userIngredients.length; i++) {
-                    for (int j = 0; j < recipeIngredientName.length; j++) {
-                        if (!userIngredients[i].equals(recipeIngredientName[j])) {
-                            foundIngredients = false;
-                        }
-                    }
-                }
-                if (foundIngredients)
+                if(userIngredient.containsAll(recipeIngredient))
                 {
-                    System.out.println(r);
-                    foundRecipes = true;
+                    foundIngredients = true;
                 }
+            }
+            if (foundIngredients)
+            {
+                System.out.println(r);
+                foundRecipes = true;
             }
         }
         if (!foundRecipes) {
@@ -391,4 +393,5 @@ public class Search
             System.out.println("No recipes found");
         }
     }
+
 }
