@@ -39,7 +39,7 @@ public class Main
                     {
                         case ADD_RECIPE:
                             System.out.println("Add recipe selected.");
-                            recipes = CreateRecipe.createRecipe();
+                            CreateRecipe.createRecipe(recipes,currentUser);
                             break;
                         case MODIFY_RECIPE:
                             System.out.println("Modify recipe selected.");
