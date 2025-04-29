@@ -10,10 +10,10 @@ import java.util.Scanner;
 public class Login {
     static Scanner sc = new Scanner(System.in);
 
-    public static User LoginAutor(List<User> users)
+    public static Author LoginAutor(List<User> users)
     {
         String name, password;
-        User currentUser = null;
+        Author currentUser = null;
         Boolean correct = false;
         System.out.println("Introduce your credentials.");
         name = sc.nextLine();
@@ -26,7 +26,7 @@ public class Login {
             {
                 if(u.getName().equals(name) && u.getPassword().equals(u.EncryptPassword(password)))
                 {
-                    currentUser = u;
+                    currentUser = (Author) u;
                     correct = true;
                 }
             }

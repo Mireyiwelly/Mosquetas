@@ -1,4 +1,5 @@
 package Recipe.main;
+import Recipe.classes.Author;
 import Recipe.classes.Recipe;
 import Recipe.classes.User;
 import Recipe.utils.*;
@@ -9,10 +10,12 @@ public class Main
 {
     static List<Recipe> recipes;
     static List<User> users;
+    static Author currentUser = null;
 
     public static void main(String[] args)
     {
         users = ReadFile.ReadUserFile();
+        recipes = ReadFile.ReadRecipeFile();
         LoginOptions optionUser;
         AppMenuOptions appOption;
         AdminOptions adminOption;
@@ -27,8 +30,11 @@ public class Main
             {
                 case AUTHOR:
                     System.out.println("Author login selected.");
-                    Login.LoginAutor(users);
-                    appOption = Menu.AppOptions();
+                    currentUser = Login.LoginAutor(users);
+                    if(currentUser != null)
+                        appOption = Menu.AppOptions();
+                    else
+                        break;
                     switch (appOption)
                     {
                         case ADD_RECIPE:
