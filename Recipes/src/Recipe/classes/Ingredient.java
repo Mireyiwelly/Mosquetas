@@ -37,6 +37,11 @@ public class Ingredient
         this.unit = unit;
     }
 
+
+    public int compareTo(Ingredient other) {
+        return this.name.compareTo(other.name);
+    }
+
     @Override
     public String toString()
     {

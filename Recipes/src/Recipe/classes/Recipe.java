@@ -11,7 +11,7 @@ abstract public class Recipe
     protected String preparation;
     protected List<Ingredient> ingredients;
     protected float calories;
-    protected char difficultyLevel;
+    protected char difficultyLevel; // 'E' for easy, 'M' for medium, 'H' for hard
     protected SpecialDiets specialDiet;
     protected LocalDate publicationDate;
     protected int preparationTime;
@@ -114,11 +114,24 @@ abstract public class Recipe
         this.author = author;
     }
 
-    public char getDishType() {
-        return dishType;
+
+    public String toFile() {
+        //Aquí junto todos los elementos de los ingredientes ya que no se puede acceder a la clase directamente como tal
+        StringBuilder ingredientsInfo = new StringBuilder();
+        for (Ingredient ingredient : ingredients) {
+            ingredientsInfo.append(ingredient.getName()).append(";").append(ingredient.getNumber()).append(";")
+                    .append(ingredient.getUnit());
+        }
+        return dishType + ";" + name + ";" + numDiners + ";" + preparation + ";" + ingredientsInfo + ";" + calories +
+                ";" + difficultyLevel + ";" + specialDiet + ";" + publicationDate + ";" + preparationTime + ";" + author;
     }
 
-    @Override
+    public char getDishType() {
+        return dishType;
+
+    }
+
+        @Override
     public String toString()
     {
         return "Name: " + name + "\n" +

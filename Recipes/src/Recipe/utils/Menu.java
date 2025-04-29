@@ -50,6 +50,7 @@ public class Menu
         System.out.println("2. Modify Recipe");
         System.out.println("3. Delete Recipe");
         System.out.println("4. Search Recipe");
+        System.out.println("5. Log Out");
 
         System.out.println("Please select an option:");
         appOption = AppMenuOptions.values()[sc.nextInt() - 1];
@@ -135,9 +136,8 @@ public class Menu
         GuestOptions guestOption;
         // These are the guest options that the user can choose from
         System.out.println("Welcome back Guest");
-        System.out.println("1. Create Recipe");
-        System.out.println("2. Search Recipe");
-        System.out.println("3. Log Out");
+        System.out.println("1. Search Recipe");
+        System.out.println("2. Log Out");
 
         System.out.println("Please select an option:");
         guestOption = GuestOptions.values()[sc.nextInt() - 1];
