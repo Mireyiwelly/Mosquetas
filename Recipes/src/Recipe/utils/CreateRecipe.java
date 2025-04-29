@@ -496,7 +496,9 @@ public class CreateRecipe
         do
         {
             System.out.println("Enter the preparation description: ");
+            sc.nextLine();
             preparation = sc.nextLine();
+
             if (FieldsValidator.isEmpty(preparation))
             {
                 System.out.println("The preparation description cannot be empty.");
