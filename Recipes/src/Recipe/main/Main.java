@@ -37,7 +37,7 @@ public class Main
                             break;
                         case MODIFY_RECIPE:
                             System.out.println("Modify recipe selected.");
-                            // Implement modify recipe functionality here
+                            Modify.UpdateRecipe(recipes,currentUser);
                             break;
                         case DELETE_RECIPE:
                             System.out.println("Delete recipe selected.");
@@ -58,7 +58,7 @@ public class Main
                                     break;
                                 case DIET:
                                     System.out.println("Search recipe by diet selected.");
-                                    //implement search by diet method here
+                                    
                                     break;
                                 case DISH:
                                     System.out.println("Search recipe by dish selected.");
