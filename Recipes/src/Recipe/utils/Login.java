@@ -15,7 +15,7 @@ public class Login {
         String name, password;
         Author currentUser = null;
         Boolean correct = false;
-        System.out.println("Introduce your credentials.");
+        System.out.println("Enter your credentials.");
         name = sc.nextLine();
         System.out.println("Password:");
         password = sc.nextLine();
@@ -53,7 +53,7 @@ public class Login {
         */
         
         do {
-            System.out.println("Introduce your nickname: ");
+            System.out.println("Enter your nickname: ");
             name = sc.nextLine();
             found = false;
 
@@ -77,7 +77,7 @@ public class Login {
         if(!found)
         {
             do {
-                System.out.println("Introduce your password: ");
+                System.out.println("Enter your password: ");
                 password = sc.nextLine();
 
                 if(!password.matches(regex))
