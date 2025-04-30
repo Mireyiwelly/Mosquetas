@@ -124,6 +124,7 @@ public class Delete
             if(confirmation.equalsIgnoreCase("Y"))
             {
                 recipes.remove(recipeToDelete);
+                userLogged.decreaseNumRecipes();
                 System.out.println("Recipe deleted.");
             }
             else
@@ -142,6 +143,7 @@ public class Delete
         String user, name;
         boolean found = false;
         int delete;
+        Author a;
         String confirmation = "";
 
         System.out.println("User: ");
@@ -171,6 +173,8 @@ public class Delete
                 if(confirmation.equalsIgnoreCase("Y"))
                 {
                     recipes.remove(i);
+                    a = r.getAuthor();
+                    a.decreaseNumRecipes();
                     System.out.println("Recipe deleted.");
                     i--;
                     //Le restamos una a la i porque el size de la lista varia y puedes saltarte recetas
