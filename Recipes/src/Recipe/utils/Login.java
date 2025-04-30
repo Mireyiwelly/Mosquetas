@@ -62,7 +62,7 @@ public class Login {
             name = sc.nextLine();
             found = false;
 
-            if(!name.equalsIgnoreCase("anonimo"))
+            if(!name.equalsIgnoreCase("anonimo") && !name.trim().isEmpty())
             {
                 for(User u : users)
                 {
