@@ -11,7 +11,7 @@ public class Cocktail extends Recipe
 
     public Cocktail(String name, int numDiners, String preparation, List<Ingredient> ingredients, float calories,
                     char difficultyLevel, SpecialDiets specialDiet, LocalDate publicationDate, int preparationTime,
-                    User author, boolean containAlcohol, float alcoholContent, boolean flambe, char dyshType)
+                    Author author, boolean containAlcohol, float alcoholContent, boolean flambe, char dyshType)
     {
         super(name, numDiners, preparation, ingredients, calories, difficultyLevel, specialDiet,
                 publicationDate, preparationTime, author, dyshType);
