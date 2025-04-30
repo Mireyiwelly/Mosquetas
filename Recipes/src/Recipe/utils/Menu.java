@@ -60,10 +60,9 @@ public class Menu
     public static AppMenuOptions AppOptions()
     {
         Scanner sc = new Scanner(System.in);
-        AppMenuOptions appOption;
         int option = -1;
+        AppMenuOptions appOption;
 
-        // These are the Author options
         System.out.println("╔══════════════════════════════╗");
         System.out.println("║           Welcome !          ║");
         System.out.println("╠══════════════════════════════╣");
@@ -80,20 +79,20 @@ public class Menu
 
             try
             {
-                option = Integer.parseInt(sc.nextLine());
+                String input = sc.nextLine();
+                option = Integer.parseInt(input);
                 if (option < 1 || option > 5)
                 {
                     System.out.println("Invalid option. Please try again.");
                 }
-
             }
             catch (NumberFormatException e)
             {
                 System.out.println("Invalid input. Please enter a number.");
             }
-
         }
-        appOption = AppMenuOptions.values()[sc.nextInt() - 1];
+
+        appOption = AppMenuOptions.values()[option - 1];
         return appOption;
     }
 
@@ -104,10 +103,9 @@ public class Menu
     public static SearchOptions SearchMenu()
     {
         Scanner sc = new Scanner(System.in);
-        SearchOptions searchOption;
         int option = -1;
+        SearchOptions searchOption;
 
-        // These are the search options that the user can choose from
         System.out.println("╔══════════════════════════════════════╗");
         System.out.println("║         Recipe Filter Options        ║");
         System.out.println("╠══════════════════════════════════════╣");
@@ -125,9 +123,11 @@ public class Menu
         while(option < 1 || option > 9)
         {
             System.out.println("Please select an option:");
+
             try
             {
-                option = Integer.parseInt(sc.nextLine());
+                String input = sc.nextLine();
+                option = Integer.parseInt(input);
                 if (option < 1 || option > 9)
                 {
                     System.out.println("Invalid option. Please try again.");
@@ -138,8 +138,8 @@ public class Menu
                 System.out.println("Invalid input. Please enter a number.");
             }
         }
-        searchOption = SearchOptions.values()[sc.nextInt() - 1];
 
+        searchOption = SearchOptions.values()[option - 1];
         return searchOption;
     }
 
@@ -147,13 +147,13 @@ public class Menu
      * This method displays the delete menu and returns the selected option.
      * @return The selected option as an enum value.
      */
+
     public static DeleteOptions DeleteMenu()
     {
         Scanner sc = new Scanner(System.in);
         int option = -1;
         DeleteOptions deleteOption;
 
-        // These are the delete options that the user can choose from
         System.out.println("╔════════════════════════════════════════════╗");
         System.out.println("║         Delete Recipe Options              ║");
         System.out.println("╠════════════════════════════════════════════╣");
@@ -168,7 +168,8 @@ public class Menu
 
             try
             {
-                option = Integer.parseInt(sc.nextLine());
+                String input = sc.nextLine();
+                option = Integer.parseInt(input);
                 if (option < 1 || option > 3)
                 {
                     System.out.println("Invalid option. Please try again.");
@@ -180,8 +181,7 @@ public class Menu
             }
         }
 
-
-        deleteOption = DeleteOptions.values()[sc.nextInt() - 1];
+        deleteOption = DeleteOptions.values()[option - 1];
         return deleteOption;
     }
 
@@ -195,7 +195,6 @@ public class Menu
         int option = -1;
         AdminOptions adminOption;
 
-        // These are the admin options that the user can choose from
         System.out.println("╔═══════════════════════════════╗");
         System.out.println("║       Welcome Admin           ║");
         System.out.println("╠═══════════════════════════════╣");
@@ -209,9 +208,11 @@ public class Menu
         while(option < 1 || option > 5)
         {
             System.out.println("Please select an option:");
+
             try
             {
-                option = Integer.parseInt(sc.nextLine());
+                String input = sc.nextLine();
+                option = Integer.parseInt(input);
                 if (option < 1 || option > 5)
                 {
                     System.out.println("Invalid option. Please try again.");
@@ -223,10 +224,10 @@ public class Menu
             }
         }
 
-        adminOption = AdminOptions.values()[sc.nextInt() - 1];
-
+        adminOption = AdminOptions.values()[option - 1];
         return adminOption;
     }
+
 
     /**
      * This method displays the guest menu and returns the selected option.
@@ -238,7 +239,6 @@ public class Menu
         int option = -1;
         GuestOptions guestOption;
 
-        // These are the guest options that the user can choose from
         System.out.println("╔══════════════════════════════╗");
         System.out.println("║       Welcome Guest          ║");
         System.out.println("╠══════════════════════════════╣");
@@ -246,21 +246,26 @@ public class Menu
         System.out.println("║ 2. Log Out                   ║");
         System.out.println("╚══════════════════════════════╝");
 
-        try
+        while(option < 1 || option > 2)
         {
             System.out.println("Please select an option:");
-            option = Integer.parseInt(sc.nextLine());
-            if (option < 1 || option > 2)
+
+            try
             {
-                System.out.println("Invalid option. Please try again.");
+                String input = sc.nextLine();
+                option = Integer.parseInt(input);
+                if (option < 1 || option > 2)
+                {
+                    System.out.println("Invalid option. Please try again.");
+                }
+            }
+            catch (NumberFormatException e)
+            {
+                System.out.println("Invalid input. Please enter a number.");
             }
         }
-        catch (NumberFormatException e)
-        {
-            System.out.println("Invalid input. Please enter a number.");
-        }
-        guestOption = GuestOptions.values()[sc.nextInt() - 1];
 
+        guestOption = GuestOptions.values()[option - 1];
         return guestOption;
     }
 }
