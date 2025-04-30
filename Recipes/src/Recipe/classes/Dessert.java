@@ -1,7 +1,5 @@
 package Recipe.classes;
 
-import Recipe.utils.SpecialDiets;
-
 import java.time.LocalDate;
 import java.util.List;
 
@@ -56,6 +54,12 @@ public class Dessert extends Recipe
 
     public void setServingTemperature(int servingTemperature) {
         this.servingTemperature = servingTemperature;
+    }
+
+    @Override
+    public String toFile()
+    {
+        return super.toFile() + ";" + baked + ";" + restingTime + ";" + bakingTime + ";" + servingTemperature;
     }
 
     @Override

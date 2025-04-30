@@ -1,7 +1,5 @@
 package Recipe.classes;
 
-import Recipe.utils.SpecialDiets;
-
 import java.time.LocalDate;
 import java.util.List;
 
@@ -44,6 +42,12 @@ public class Cocktail extends Recipe
 
     public void setFlambe(boolean flambe) {
         this.flambe = flambe;
+    }
+
+    @Override
+    public String toFile()
+    {
+        return super.toFile() + ";" + containAlcohol + ";" + alcoholContent + ";" + flambe;
     }
 
     @Override

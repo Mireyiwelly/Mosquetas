@@ -35,6 +35,12 @@ public class Appetizer extends Recipe
     }
 
     @Override
+    public String toFile()
+    {
+        return super.toFile() + ";" + servingtemperature + ";" + culturalOrigin ;
+    }
+
+    @Override
     public String toString()
     {
         return super.toString() + "\n" +

@@ -94,7 +94,7 @@ public class Menu
         DeleteOptions deleteOption;
         // These are the delete options that the user can choose from
         System.out.println("1. Delete by recipe name");
-        System.out.println("2. Delete by recipe ID");
+        System.out.println("2. Delete by dish type");
         System.out.println("3. Back to Main Menu");
         System.out.println("Please select an option:");
         deleteOption = DeleteOptions.values()[sc.nextInt() - 1];
@@ -123,6 +123,25 @@ public class Menu
         adminOption = AdminOptions.values()[sc.nextInt() - 1];
 
         return adminOption;
+    }
 
+    /**
+     * This method displays the guest menu and returns the selected option.
+     * @return The selected option as an enum value.
+     */
+    public static GuestOptions GuestMenu()
+    {
+        Scanner sc = new Scanner(System.in);
+
+        GuestOptions guestOption;
+        // These are the guest options that the user can choose from
+        System.out.println("Welcome back Guest");
+        System.out.println("1. Search Recipe");
+        System.out.println("2. Log Out");
+
+        System.out.println("Please select an option:");
+        guestOption = GuestOptions.values()[sc.nextInt() - 1];
+
+        return guestOption;
     }
 }

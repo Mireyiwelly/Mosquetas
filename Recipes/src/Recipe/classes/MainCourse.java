@@ -1,7 +1,5 @@
 package Recipe.classes;
 
-import Recipe.utils.SpecialDiets;
-
 import java.time.LocalDate;
 import java.util.List;
 
@@ -35,6 +33,12 @@ public class MainCourse extends Recipe
 
     public void setSideDish(String sideDish) {
         this.sideDish = sideDish;
+    }
+
+    @Override
+    public String toFile()
+    {
+        return super.toFile() + ";" + celebrationDish + ";" + sideDish;
     }
 
     @Override

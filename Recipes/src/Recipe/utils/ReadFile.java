@@ -23,6 +23,7 @@ public class ReadFile
     {
         List<Recipe> recipes = new ArrayList<>();
         List<Ingredient> ingredients = new ArrayList<>();
+        int servingTemperature;
 
         try (BufferedReader inputFile = new BufferedReader(new FileReader(new File(RECIPEFILENAME))))
         {
@@ -45,7 +46,7 @@ public class ReadFile
 
                 switch (dishType) {
                     case 'A':
-                        int servingTemperature = Integer.parseInt(recipeData[15]);
+                        servingTemperature = Integer.parseInt(recipeData[15]);
                         String culturalOrigin = recipeData[16];
 
                         recipes.add(new Appetizer(name, numDiners, preparation, ingredients, calories,
@@ -113,33 +114,20 @@ public class ReadFile
                 int numRecipes;
                 String password;
 
-                char userType = userData[0].charAt(0);;
-                name = userData[1];
-                switch (userType)
+
+                name = userData[0];
+
+                if(userData.length == 2)
                 {
-                    case 'A' :
-                    {
-                        password = userData[2];
+                    password = userData[1];
+                    users.add(new Admin(name, password));
+                }
+                else
+                {
+                    numRecipes = Integer.parseInt(userData[1]);
+                    password = userData[2];
 
-                        users.add(new Admin(name, password));
-                        break;
-                    }
-                    case 'G' :
-                    {
-                        users.add(new Guest(name));
-                        break;
-                    }
-                    case 'T' :
-                    {
-                        numRecipes = Integer.parseInt(userData[2]);
-                        password = userData[3];
-
-                        users.add(new Author(name, numRecipes,password));
-                        break;
-                    }
-                    default:
-                        System.err.println("Unknown user: " + userType);
-                        break;
+                    users.add(new Author(name, numRecipes, password));
                 }
             }
         }
