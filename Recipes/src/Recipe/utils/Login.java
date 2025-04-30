@@ -20,19 +20,24 @@ public class Login {
         System.out.println("Password:");
         password = sc.nextLine();
 
-        for(User u: users)
+        if(!name.equals("anonimo"))
         {
-            if(u instanceof Author)
+            for(User u: users)
             {
-                if(u.getName().equals(name) && u.getPassword().equals(u.EncryptPassword(password)))
+                if(u instanceof Author)
                 {
-                    currentUser = (Author) u;
-                    correct = true;
+                    if(u.getName().equals(name) && u.getPassword().equals(u.EncryptPassword(password)))
+                    {
+                        currentUser = (Author) u;
+                        correct = true;
+                    }
                 }
             }
+            if(!correct)
+                System.out.println("Invalid user or password");
         }
-        if(!correct)
-            System.out.println("Invalid user or password");
+        else
+            System.out.println("You cannot be anonimo ;)");
         return currentUser;
     }
 
