@@ -108,6 +108,7 @@ public class ReadFile
             String line;
             while ((line = inputFile.readLine()) != null)
             {
+                if (line.trim().isEmpty()) continue;
                 String[] userData = line.split(";");
 
                 String name;
