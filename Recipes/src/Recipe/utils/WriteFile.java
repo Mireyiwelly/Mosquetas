@@ -10,7 +10,7 @@ public class WriteFile
     private static final String RECIPEFILENAME = "recipes.txt";
 
     /** Method for writing a list of users in the users.txt @param users to write users */
-    public static void writeUsers(List<User> users)
+    public static void saveUsers(List<User> users)
     {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(USERFILENAME)))
         {

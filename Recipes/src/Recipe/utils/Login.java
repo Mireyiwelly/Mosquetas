@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Login {
     static Scanner sc = new Scanner(System.in);
 
-    public static Author LoginAutor(List<User> users)
+    public static Author LoginAuthor(List<User> users)
     {
         String name, password;
         Author currentUser = null;
@@ -36,7 +36,7 @@ public class Login {
         return currentUser;
     }
 
-    public static void SingInAutor(List<User> users)
+    public static void SignInAuthor(List<User> users)
     {
         String name = "", password;
         boolean found = false;
