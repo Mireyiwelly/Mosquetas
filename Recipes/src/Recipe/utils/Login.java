@@ -41,7 +41,7 @@ public class Login {
         return currentUser;
     }
 
-    public static void SignInAuthor(List<User> users)
+    public static void SignInAuthor(List<User> users, Scanner sc)
     {
         String name = "", password;
         boolean found = false;
@@ -62,7 +62,7 @@ public class Login {
             name = sc.nextLine();
             found = false;
 
-            if(!name.equalsIgnoreCase("anonimo"))
+            if(!name.equalsIgnoreCase("anonimo") || name.trim().isEmpty())
             {
                 for(User u : users)
                 {
