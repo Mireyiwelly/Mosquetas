@@ -21,6 +21,10 @@ public class Author extends User
                   String password)
     {
         super(name);
+        if(password == null || password.isEmpty())
+        {
+            throw new IllegalArgumentException("Password cannot be empty");
+        }
         this.numRecipes = numRecipes;
         this.password = EncryptPassword(password);
 
