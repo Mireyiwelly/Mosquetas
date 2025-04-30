@@ -72,7 +72,7 @@ public class Author extends User
     @Override
     public String toFile()
     {
-        return super.toFile() + ";" + password + ";" + numRecipes;
+        return super.toFile() + numRecipes + ";" + password;
     }
 
     @Override

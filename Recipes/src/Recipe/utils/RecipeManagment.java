@@ -4,10 +4,16 @@ import Recipe.classes.Author;
 import Recipe.classes.Recipe;
 import Recipe.classes.User;
 
+import java.util.Collections;
 import java.util.List;
 
 public class RecipeManagment
 {
+    /**
+     * Manages the author options for creating, modifying, and deleting recipes.
+     * @param recipes receives the list of recipes
+     * @param users receives the list of users
+     */
     public static void ManageAuthor(List<Recipe> recipes, List<User> users)
     {
         Author currentUser = Login.LoginAutor(users);
@@ -25,6 +31,8 @@ public class RecipeManagment
                 case ADD_RECIPE:
                     System.out.println("Add recipe selected.");
                     CreateRecipe.createRecipe(recipes, currentUser);
+                    Collections.sort(recipes);
+                    Search.ShowRecipe(recipes);
                     break;
                 case MODIFY_RECIPE:
                     System.out.println("Modify recipe selected.");
@@ -49,6 +57,10 @@ public class RecipeManagment
         while (option != AppMenuOptions.LOGOUT);
     }
 
+    /**
+     * Manages the guest options for searching recipes.
+     * @param recipes receives the list of recipes
+     */
     public static void ManageGuest(List<Recipe> recipes)
     {
         GuestOptions option;
@@ -72,6 +84,11 @@ public class RecipeManagment
         while(option != GuestOptions.LOGOUT);
     }
 
+    /**
+     * Manages the admin options for deleting users and recipes.
+     * @param users receives the list of users
+     * @param recipes receives the list of recipes
+     */
     public static void ManageAdmin(List<Author> users, List<Recipe> recipes)
     {
         AdminOptions option;
