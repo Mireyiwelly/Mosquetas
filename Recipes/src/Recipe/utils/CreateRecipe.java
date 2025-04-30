@@ -3,6 +3,7 @@ import Recipe.classes.*;
 import Recipe.utils.*;
 
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Scanner;
 
 import java.time.LocalDate;
@@ -374,17 +375,15 @@ public class CreateRecipe
         String name, preparation;
         int numDiners, preparationTime, recipeType;
         List<Ingredient> ingredients = new ArrayList<Ingredient>();
-        float calories = 0f;
+        float calories;
         char difficultyLevel;
         String specialDietInput;
         SpecialDiets specialDiets = null;
-        String publicationDateInput;
-        LocalDate publicationDate;
+        LocalDate publicationDate = LocalDate.now();
         User author;
-        int numIngredients = -1;
+        int numIngredients;
 
         // Ask the user for recipe details until valid input is provided.
-
         System.out.println(" --- CREATE NEW RECIPE --- ");
         // Ask the user for the name of the recipe until valid input is provided.
         do
@@ -470,20 +469,7 @@ public class CreateRecipe
                 specialDiets = SpecialDiets.valueOf(specialDietInput);
             }
         } while(!FieldsValidator.isValidSpecialDiet(specialDietInput));
-        // Ask the user for the publication date until valid input is provided.
-        do
-        {
-            System.out.println("Enter the publication date (DD-MM-YYYY): ");
-            publicationDateInput = sc.nextLine();
 
-            try {
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-                publicationDate = LocalDate.parse(publicationDateInput, formatter);
-            } catch (Exception e) {
-                publicationDate = null;
-                System.out.println("Invalid date format. Please use dd-MM-yyyy.");
-            }
-        } while (publicationDate == null);
         // Ask the user for the preparation time until valid input is provided.
         do
         {
