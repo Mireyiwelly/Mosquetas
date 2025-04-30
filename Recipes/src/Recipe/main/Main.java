@@ -6,6 +6,7 @@ import Recipe.utils.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main
 {
@@ -19,6 +20,7 @@ public class Main
      */
     public static void main(String[] args)
     {
+        Scanner sc = new Scanner(System.in);
         users = ReadFile.ReadUserFile();
         recipes = ReadFile.ReadRecipeFile();
         LoginOptions optionUser;
@@ -48,7 +50,7 @@ public class Main
                     break;
                 case NEW_AUTHOR:
                     System.out.println("New author account creation selected.");
-                    Login.SignInAuthor(users);
+                    Login.SignInAuthor(users, sc);
                     break;
                 case ADMIN:
                     System.out.println("Admin login successful!");

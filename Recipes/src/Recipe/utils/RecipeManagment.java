@@ -6,6 +6,7 @@ import Recipe.classes.User;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 
 public class RecipeManagment
 {
@@ -16,7 +17,8 @@ public class RecipeManagment
      */
     public static void ManageAuthor(List<Recipe> recipes, List<User> users)
     {
-        Author currentUser = Login.LoginAuthor(users);
+        Scanner sc = new Scanner(System.in);
+        Author currentUser = Login.LoginAuthor(users, sc);
         if(currentUser == null)
         {
             return;
