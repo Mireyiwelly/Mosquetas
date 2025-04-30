@@ -379,9 +379,6 @@ public class CreateRecipe
         char difficultyLevel;
         String specialDietInput;
         SpecialDiets specialDiets = null;
-
-        String publicationDateInput;
-        LocalDate publicationDate;
         int numIngredients = -1;
         LocalDate publicationDate = LocalDate.now();
   
