@@ -10,27 +10,45 @@ public class Menu
     public static LoginOptions MenuLogIn()
     {
         Scanner sc = new Scanner(System.in);
+        int option = -1;
 
         System.out.println("╔══════════════════════════════════╗");
         System.out.println("║      RECIPE MANAGEMENT SYSTEM    ║");
         System.out.println("╚══════════════════════════════════╝");
 
-        System.out.println("Welcome to the Recipe Management System");
-        System.out.println("1. Login as Author");
-        System.out.println("2. Login as Guest");
-        System.out.println("3. Create New Author Account");
-        System.out.println("4. Exit");
+        System.out.println("╔════════════════════════════════════════════════════╗");
+        System.out.println("║      Welcome to the Recipe Management System       ║");
+        System.out.println("╠════════════════════════════════════════════════════╣");
+        System.out.println("║ 1. Login as Author                                 ║");
+        System.out.println("║ 2. Login as Guest                                  ║");
+        System.out.println("║ 3. Create New Author Account                       ║");
+        System.out.println("║ 4. Exit                                            ║");
+        System.out.println("╚════════════════════════════════════════════════════╝");
 
-        System.out.println("Please select an option: ");
-        String input = sc.nextLine();
 
-        // If the user inputs "admin1234", log in as an admin
-        if (input.equals("admin1234"))
+        while(option < 1 || option > 4)
         {
-            return LoginOptions.ADMIN;
-        }
+            System.out.println("Please select an option: ");
+            String input = sc.nextLine();
+            // If the user inputs "admin1234", log in as an admin
+            if (input.equals("admin1234"))
+            {
+                return LoginOptions.ADMIN;
+            }
 
-        int option = Integer.parseInt(input);
+            try
+            {
+                option = Integer.parseInt(input);
+                if (option < 1 || option > 4)
+                {
+                    System.out.println("Invalid option. Please try again.");
+                }
+            }
+            catch (NumberFormatException e)
+            {
+                System.out.println("Invalid input. Please enter a number.");
+            }
+        }
 
         return LoginOptions.values()[option - 1];
     }
@@ -45,12 +63,16 @@ public class Menu
 
         AppMenuOptions appOption;
         // These are the Author options
-        System.out.println("Welcome back");
-        System.out.println("1. Add Recipe");
-        System.out.println("2. Modify Recipe");
-        System.out.println("3. Delete Recipe");
-        System.out.println("4. Search Recipe");
-        System.out.println("5. Log Out");
+        System.out.println("╔══════════════════════════════╗");
+        System.out.println("║           Welcome !          ║");
+        System.out.println("╠══════════════════════════════╣");
+        System.out.println("║ 1. Add Recipe                ║");
+        System.out.println("║ 2. Modify Recipe             ║");
+        System.out.println("║ 3. Delete Recipe             ║");
+        System.out.println("║ 4. Search Recipe             ║");
+        System.out.println("║ 5. Log Out                   ║");
+        System.out.println("╚══════════════════════════════╝");
+
 
         System.out.println("Please select an option:");
         appOption = AppMenuOptions.values()[sc.nextInt() - 1];
@@ -68,15 +90,20 @@ public class Menu
 
         SearchOptions searchOption;
         // These are the search options that the user can choose from
-        System.out.println("1. Number of diners");
-        System.out.println("2. Publication date");
-        System.out.println("3. Dish type");
-        System.out.println("4. Special diet");
-        System.out.println("5. Difficulty level");
-        System.out.println("6. Preparation time");
-        System.out.println("7. Name of recipe");
-        System.out.println("8. Ingredients");
-        System.out.println("9. Back to Main Menu");
+        System.out.println("╔══════════════════════════════════════╗");
+        System.out.println("║         Recipe Filter Options        ║");
+        System.out.println("╠══════════════════════════════════════╣");
+        System.out.println("║ 1. Number of diners                  ║");
+        System.out.println("║ 2. Publication date                  ║");
+        System.out.println("║ 3. Dish type                         ║");
+        System.out.println("║ 4. Special diet                      ║");
+        System.out.println("║ 5. Difficulty level                  ║");
+        System.out.println("║ 6. Preparation time                  ║");
+        System.out.println("║ 7. Name of recipe                    ║");
+        System.out.println("║ 8. Ingredients                       ║");
+        System.out.println("║ 9. Back to Main Menu                 ║");
+        System.out.println("╚══════════════════════════════════════╝");
+
         System.out.println("Please select an option:");
         searchOption = SearchOptions.values()[sc.nextInt() - 1];
 
@@ -93,9 +120,14 @@ public class Menu
 
         DeleteOptions deleteOption;
         // These are the delete options that the user can choose from
-        System.out.println("1. Delete by recipe name");
-        System.out.println("2. Delete by dish type");
-        System.out.println("3. Back to Main Menu");
+        System.out.println("╔════════════════════════════════════════════╗");
+        System.out.println("║         Delete Recipe Options              ║");
+        System.out.println("╠════════════════════════════════════════════╣");
+        System.out.println("║ 1. Delete by recipe name                   ║");
+        System.out.println("║ 2. Delete by dish type                     ║");
+        System.out.println("║ 3. Back to Main Menu                       ║");
+        System.out.println("╚════════════════════════════════════════════╝");
+
         System.out.println("Please select an option:");
         deleteOption = DeleteOptions.values()[sc.nextInt() - 1];
 
@@ -112,12 +144,16 @@ public class Menu
 
         AdminOptions adminOption;
         // These are the admin options that the user can choose from
-        System.out.println("Welcome back Admin");
-        System.out.println("1. Delete User");
-        System.out.println("2. Delete Recipes");
-        System.out.println("3. Show Users");
-        System.out.println("4. Show Recipes");
-        System.out.println("5. Log Out");
+        System.out.println("╔═══════════════════════════════╗");
+        System.out.println("║       Welcome Admin           ║");
+        System.out.println("╠═══════════════════════════════╣");
+        System.out.println("║ 1. Delete User                ║");
+        System.out.println("║ 2. Delete Recipes             ║");
+        System.out.println("║ 3. Show Users                 ║");
+        System.out.println("║ 4. Show Recipes               ║");
+        System.out.println("║ 5. Log Out                    ║");
+        System.out.println("╚═══════════════════════════════╝");
+
 
         System.out.println("Please select an option:");
         adminOption = AdminOptions.values()[sc.nextInt() - 1];
@@ -135,9 +171,13 @@ public class Menu
 
         GuestOptions guestOption;
         // These are the guest options that the user can choose from
-        System.out.println("Welcome back Guest");
-        System.out.println("1. Search Recipe");
-        System.out.println("2. Log Out");
+        System.out.println("╔══════════════════════════════╗");
+        System.out.println("║       Welcome Guest          ║");
+        System.out.println("╠══════════════════════════════╣");
+        System.out.println("║ 1. Search Recipe             ║");
+        System.out.println("║ 2. Log Out                   ║");
+        System.out.println("╚══════════════════════════════╝");
+
 
         System.out.println("Please select an option:");
         guestOption = GuestOptions.values()[sc.nextInt() - 1];

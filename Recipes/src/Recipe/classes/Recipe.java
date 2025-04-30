@@ -138,6 +138,7 @@ abstract public class Recipe implements Comparable<Recipe>
 
     public String toFile()
     {
+        Author author = (Author) this.author;
         //Aquí junto todos los elementos de los ingredientes ya que no se puede acceder a la clase directamente como tal
         StringBuilder ingredientsInfo = new StringBuilder();
         for (Ingredient ingredient : ingredients)
@@ -146,7 +147,7 @@ abstract public class Recipe implements Comparable<Recipe>
                     .append(ingredient.getUnit());
         }
         return dishType + ";" + name + ";" + numDiners + ";" + preparation + ";" + ingredientsInfo + ";" + calories +
-                ";" + difficultyLevel + ";" + specialDiet + ";" + publicationDate + ";" + preparationTime + ";" + author;
+                ";" + difficultyLevel + ";" + specialDiet + ";" + publicationDate + ";" + preparationTime + ";" + author.getName() + ";" + author.getNumRecipes() + ";" + author.getPassword();
     }
 
     public char getDishType()

@@ -34,7 +34,7 @@ public class WriteFile
         {
             for(Recipe recipe : recipesList)
             {
-                writer.write(recipe.toFile());
+                writer.write(recipe.toFile() + "\n");
             }
             System.out.println("Correctly: " + RECIPEFILENAME);
         }
