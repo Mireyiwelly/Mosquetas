@@ -10,6 +10,7 @@ public class Menu
     public static LoginOptions MenuLogIn()
     {
         Scanner sc = new Scanner(System.in);
+        int option = -1;
 
         System.out.println("╔══════════════════════════════════╗");
         System.out.println("║      RECIPE MANAGEMENT SYSTEM    ║");
@@ -25,16 +26,29 @@ public class Menu
         System.out.println("╚════════════════════════════════════════════════════╝");
 
 
-        System.out.println("Please select an option: ");
-        String input = sc.nextLine();
-
-        // If the user inputs "admin1234", log in as an admin
-        if (input.equals("admin1234"))
+        while(option < 1 || option > 4)
         {
-            return LoginOptions.ADMIN;
-        }
+            System.out.println("Please select an option: ");
+            String input = sc.nextLine();
+            // If the user inputs "admin1234", log in as an admin
+            if (input.equals("admin1234"))
+            {
+                return LoginOptions.ADMIN;
+            }
 
-        int option = Integer.parseInt(input);
+            try
+            {
+                option = Integer.parseInt(input);
+                if (option < 1 || option > 4)
+                {
+                    System.out.println("Invalid option. Please try again.");
+                }
+            }
+            catch (NumberFormatException e)
+            {
+                System.out.println("Invalid input. Please enter a number.");
+            }
+        }
 
         return LoginOptions.values()[option - 1];
     }
