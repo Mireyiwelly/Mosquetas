@@ -6,7 +6,7 @@ import Recipe.classes.*;
 
 public class WriteFile
 {
-    private static final String USERFILENAME = "users.txt";
+    protected static final String USERFILENAME = "users.txt";
     private static final String RECIPEFILENAME = "recipes.txt";
 
     /** Method for writing a list of users in the users.txt @param users to write users */
