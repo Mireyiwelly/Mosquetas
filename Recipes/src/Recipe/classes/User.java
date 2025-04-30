@@ -72,7 +72,8 @@ abstract public class User
         for(int i= 0; i < password.length(); i++)
         {
             c = password.charAt(i);
-            c++;
+            if(c != 58) // el : equivale a 58 en ascii, si se ecripta, sería 59 que es ; y da problemas en ficheros
+                c++;
             encriptedpassword.append(c);
         }
 
