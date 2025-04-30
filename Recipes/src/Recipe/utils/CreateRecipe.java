@@ -224,7 +224,7 @@ public class CreateRecipe
      * @param publicationDate the publication date
      * @param preparationTime the preparation time
      */
-    public static void createDessert(List<Recipe> recipes, User author, String name, int numDiners,
+    public static void createDessert(List<Recipe> recipes, Author author, String name, int numDiners,
                                       String preparation, List<Ingredient> ingredients, float calories,
                                       char difficultyLevel, SpecialDiets specialDiets, LocalDate publicationDate, int preparationTime)
     {
@@ -326,7 +326,7 @@ public class CreateRecipe
      * @param publicationDate the publication date
      * @param preparationTime the preparation time
      */
-    public static void createMainCourse(List<Recipe> recipes, User author, String name, int numDiners,
+    public static void createMainCourse(List<Recipe> recipes, Author author, String name, int numDiners,
                                         String preparation, List<Ingredient> ingredients, float calories,
                                         char difficultyLevel, SpecialDiets specialDiets, LocalDate publicationDate, int preparationTime)
     {
@@ -365,9 +365,9 @@ public class CreateRecipe
      * Creates a recipe and adds it to the list of recipes.
      *
      * @param recipes the list of recipes
-     * @param user the user who created the recipe
+     * @param author the user who created the recipe
      */
-    public static void createRecipe(List<Recipe> recipes, User user)
+    public static void createRecipe(List<Recipe> recipes, Author author)
     {
         Scanner sc = new Scanner(System.in);
 
@@ -380,7 +380,7 @@ public class CreateRecipe
         SpecialDiets specialDiets = null;
         String publicationDateInput;
         LocalDate publicationDate;
-        User author;
+
         int numIngredients = -1;
 
         // Ask the user for recipe details until valid input is provided.
@@ -542,7 +542,7 @@ public class CreateRecipe
             ingredients.add(addIngredient());
         }
 
-        author = user;
+
         // Ask the user for the recipe type until valid input is provided.
         do
         {
@@ -573,24 +573,28 @@ public class CreateRecipe
                 System.out.println("Appetizer selected.");
                 createAppetizer(recipes, author, name, numDiners, preparation, ingredients, calories,
                         difficultyLevel, specialDiets, publicationDate, preparationTime);
+                author.increaseNumRecipes();
                 System.out.println("--- RECIPE APPETIZER CREATED ---");
                 break;
             case 2:
                 System.out.println("Cocktail selected.");
                 createCocktail(recipes, author, name, numDiners, preparation, ingredients, calories,
                         difficultyLevel, specialDiets, publicationDate, preparationTime);
+                author.increaseNumRecipes();
                 System.out.println("--- RECIPE COCKTAIL CREATED ---");
                 break;
             case 3:
                 System.out.println("Main Course selected.");
                 createMainCourse(recipes, author, name, numDiners, preparation, ingredients, calories,
                         difficultyLevel, specialDiets, publicationDate, preparationTime);
+                author.increaseNumRecipes();
                 System.out.println("--- RECIPE MAIN COURSE CREATED ---");
                 break;
             case 4:
                 System.out.println("Dessert selected.");
                 createDessert(recipes, author, name, numDiners, preparation, ingredients, calories,
                         difficultyLevel, specialDiets, publicationDate, preparationTime);
+                author.increaseNumRecipes();
                 System.out.println("--- RECIPE DESSERT CREATED ---");
                 break;
         }
