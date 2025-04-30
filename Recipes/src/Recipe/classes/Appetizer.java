@@ -10,7 +10,7 @@ public class Appetizer extends Recipe
 
     public Appetizer(String name, int numDiners, String preparation, List<Ingredient> ingredients, float calories,
                      char difficultyLevel, SpecialDiets specialDiet, LocalDate publicationDate, int preparationTime,
-                     User author, int servingtemperature, String culturalOrigin, char dishType)
+                     Author author, int servingtemperature, String culturalOrigin, char dishType)
     {
         super(name, numDiners, preparation, ingredients, calories, difficultyLevel, specialDiet, publicationDate,
                 preparationTime, author, dishType);
