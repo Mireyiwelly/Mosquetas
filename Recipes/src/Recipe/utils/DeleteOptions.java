@@ -2,5 +2,5 @@ package Recipe.utils;
 
 public enum DeleteOptions
 {
-    NAME, DISH_TYPE;
+    NAME, DISH_TYPE, EXIT;
 }

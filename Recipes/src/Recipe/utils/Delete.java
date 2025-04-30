@@ -13,6 +13,32 @@ public class Delete
 {
     static Scanner sc = new Scanner(System.in);
 
+    public static void ManageDelete(List<Recipe> recipes, Author currentUser)
+    {
+        DeleteOptions option;
+        do
+        {
+            option = Menu.DeleteMenu();
+            switch (option)
+            {
+                case NAME:
+                    System.out.println("Delete by name selected.");
+                    DeleteByName(recipes, currentUser);
+                    break;
+                case DISH_TYPE:
+                    System.out.println("Delete by dish type selected.");
+                    DeleteRecipeByDishType(recipes, currentUser);
+                    break;
+                case EXIT:
+                    System.out.println("Back to main menu selected.");
+                    break;
+                default:
+                    System.out.println("Invalid option.");
+                    break;
+            }
+        }
+        while (option != DeleteOptions.EXIT);
+    }
     /**
      * Deletes a recipe from the list of recipes based on the dish type.
      *
@@ -157,7 +183,7 @@ public class Delete
         }
     }
 
-    public static void DeleteUser(List<User> users) {
+    public static void DeleteUser(List<Author> users) {
         String userName;
         boolean found = false;
         String confirmation = "";

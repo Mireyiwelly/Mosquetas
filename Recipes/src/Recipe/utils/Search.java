@@ -7,6 +7,62 @@ public class Search
 {
     static Scanner sc = new Scanner(System.in);
 
+    /**
+     * Manages the search functionality for recipes.
+     * This method displays a menu for the user to select a search option
+     * and calls the corresponding search method.
+     * @param recipes The list of recipes to search from.
+     */
+    public static void ManageSearch(List<Recipe> recipes)
+    {
+        SearchOptions searchOption;
+        do
+        {
+            searchOption = Menu.SearchMenu();
+            switch(searchOption)
+            {
+                case DATE:
+                    System.out.println("Search recipe by date selected.");
+                    Search.SearchByPublicationDate(recipes);
+                    break;
+                case DINERS:
+                    System.out.println("Search recipe by diners selected.");
+                    Search.SearchByNumberOfDiners(recipes);
+                    break;
+                case DIET:
+                    System.out.println("Search recipe by diet selected.");
+                    Search.SearchByDiet(recipes);
+                    break;
+                case DISH:
+                    System.out.println("Search recipe by dish selected.");
+                    Search.SearchByDishType(recipes);
+                    break;
+                case NAME:
+                    System.out.println("Search recipe by name selected.");
+                    Search.SearchByName(recipes);
+                    break;
+                case DIFFICULTY:
+                    System.out.println("Search recipe by difficulty selected.");
+                    Search.SearchByDifficulty(recipes);
+                    break;
+                case INGREDIENTS:
+                    System.out.println("Search recipe by ingredients selected.");
+                    Search.SearchByIngredients(recipes);
+                    break;
+                case PREPARATION_TIME:
+                    System.out.println("Search recipe by preparation time selected.");
+                    Search.SearchByPreparationTime(recipes);
+                    break;
+                case EXIT:
+                    System.out.println("Exiting search by.");
+                    break;
+                default:
+                    System.out.println("Invalid option selected.");
+            }
+        }
+        while(searchOption != SearchOptions.EXIT);
+
+    }
     public static void SearchByPublicationDate(List<Recipe> recipes)
     {
         LocalDate searchDate = null;
@@ -264,7 +320,7 @@ public class Search
     public static void SearchByIngredients(List<Recipe> recipes)
     {
         String ingredients;
-        boolean foundIngredients = true, foundRecipes = false;
+        boolean foundIngredients = false, foundRecipes = false;
 
         System.out.println("Introduce all the ingredients separated by a ';'");
         ingredients = sc.nextLine();
@@ -279,20 +335,22 @@ public class Search
             for (int i = 0; i < recipeIngredients.size(); i++) {
                 recipeIngredientName[i] = recipeIngredients.get(i).getName().toLowerCase();
             }
-            if(userIngredients.length >= recipeIngredients.size())
+
+            List<String> userIngredient = Arrays.asList(userIngredients);
+            List<String> recipeIngredient = Arrays.asList(recipeIngredientName);
+
+            foundIngredients = false;
+            if(userIngredient.size() >= recipeIngredient.size())
             {
-                for (int i = 0; i < userIngredients.length; i++) {
-                    for (int j = 0; j < recipeIngredientName.length; j++) {
-                        if (!userIngredients[i].equals(recipeIngredientName[j])) {
-                            foundIngredients = false;
-                        }
-                    }
-                }
-                if (foundIngredients)
+                if(userIngredient.containsAll(recipeIngredient))
                 {
-                    System.out.println(r);
-                    foundRecipes = true;
+                    foundIngredients = true;
                 }
+            }
+            if (foundIngredients)
+            {
+                System.out.println(r);
+                foundRecipes = true;
             }
         }
         if (!foundRecipes) {
@@ -300,14 +358,17 @@ public class Search
         }
     }
   
-    public static void ShowUsers(List<User> users)
+    public static void ShowUsers(List<Author> users)
     {
         boolean found = false;
 
-        System.out.println("--ALL USERS--");
-        for(User u: users)
+
+        System.out.println("All users");
+        for(Author u: users)
         {
-            System.out.println(u);
+            System.out.println(u.getName());
+            System.out.println(u.getNumRecipes());
+            System.out.println();
             found = true;
         }
 
@@ -316,4 +377,21 @@ public class Search
             System.out.println("No users found");
         }
     }
+
+    public static void ShowRecipe(List<Recipe> recipes)
+    {
+        System.out.println("--ALL RECIPES--");
+
+        boolean found = false;
+        for(Recipe r: recipes)
+        {
+                System.out.println("Author: " + r.getAuthor().getName() + ", Name: " + r.getName());
+                found = true;
+        }
+        if(!found)
+        {
+            System.out.println("No recipes found");
+        }
+    }
+
 }
