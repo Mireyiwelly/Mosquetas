@@ -26,6 +26,16 @@ public class Author extends User
 
     }
 
+    public void increaseNumRecipes()
+    {
+        this.numRecipes++;
+    }
+
+    public void decreaseNumRecipes()
+    {
+        this.numRecipes--;
+    }
+
     public int getNumRecipes()
     {
         return numRecipes;

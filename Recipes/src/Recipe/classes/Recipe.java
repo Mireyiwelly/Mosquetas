@@ -15,13 +15,14 @@ abstract public class Recipe implements Comparable<Recipe>
     protected SpecialDiets specialDiet;
     protected LocalDate publicationDate;
     protected int preparationTime;
-    protected User author;
+    protected Author author;
     protected char dishType; // 'A' for Appetizer, 'M' for Main Course, 'D' for Dessert, 'C' for Cocktail
 
     public Recipe(String name, int numDiners, String preparation, List<Ingredient> ingredients, float calories,
                   char difficultyLevel, SpecialDiets specialDiet, LocalDate publicationDate,
-                  int preparationTime, User author, char dishType)
-    {
+                  int preparationTime, Author author, char dishType){
+
+ 
         this.name = name;
         this.numDiners = numDiners;
         this.preparation = preparation;
@@ -125,13 +126,12 @@ abstract public class Recipe implements Comparable<Recipe>
         this.preparationTime = preparationTime;
     }
 
-    public User getAuthor()
-    {
+    public Author getAuthor() {
         return author;
     }
 
-    public void setAuthor(User author)
-    {
+    public void setAuthor(Author author) {
+
         this.author = author;
     }
 
