@@ -12,7 +12,11 @@ public class Main
     static List<Recipe> recipes;
     static List<User> users;
     static Author currentUser = null;
-
+    /**
+     * Main method to start the application.
+     * Reads users and recipes from files, and manages user login options.
+     * @param args command line arguments
+     */
     public static void main(String[] args)
     {
         users = ReadFile.ReadUserFile();
@@ -20,7 +24,7 @@ public class Main
         LoginOptions optionUser;
         List<Author> authors;
         authors = new ArrayList<>();
-
+        // Iterate through the list of users and add authors to the authors list
         for(User user : users)
         {
             if(user instanceof Author)
