@@ -147,8 +147,7 @@ abstract public class Recipe implements Comparable<Recipe>
                     .append(ingredient.getUnit());
         }
         return dishType + ";" + name + ";" + numDiners + ";" + preparation + ";" + ingredientsInfo + ";" + calories +
-                ";" + difficultyLevel + ";" + specialDiet + ";" + publicationDate + ";" + preparationTime + ";" +
-                author.getName() + ";" + author.numRecipes + ";" + author.getPassword();
+                ";" + difficultyLevel + ";" + specialDiet + ";" + publicationDate + ";" + preparationTime + ";" + author.getName() + ";" + author.getNumRecipes() + ";" + author.getPassword();
     }
 
     public char getDishType()
