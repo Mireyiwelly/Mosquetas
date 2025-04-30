@@ -42,7 +42,7 @@ public class ReadFile
                 SpecialDiets specialDiet = SpecialDiets.valueOf(recipeData[9]);
                 LocalDate publicationDate = LocalDate.parse(recipeData[10]);
                 int preparationTime = Integer.parseInt(recipeData[11]);
-                User author = new Author(recipeData[12], Integer.parseInt(recipeData[13]), recipeData[14]);
+                Author author = new Author(recipeData[12], Integer.parseInt(recipeData[13]), recipeData[14]);
 
                 switch (dishType) {
                     case 'A':
