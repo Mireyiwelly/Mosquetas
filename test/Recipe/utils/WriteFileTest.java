@@ -96,7 +96,7 @@ class WriteFileTest {
     public void testSaveUsersSpecialCharacters() {
         // Preparar: Crear una lista de usuarios con nombres que contienen caracteres especiales
         List<User> users = new ArrayList<>();
-        users.add(new Author("Mireya@123",0, "Password123"));
+        users.add(new Author("David@123",0, "Password123"));
         users.add(new Author("Juan#123",0, "1234Password"));
 
         // Redirigir la salida estándar a un ByteArrayOutputStream para capturar lo impreso
