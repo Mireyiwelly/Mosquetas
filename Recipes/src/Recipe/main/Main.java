@@ -48,7 +48,7 @@ public class Main
                     break;
                 case NEW_AUTHOR:
                     System.out.println("New author account creation selected.");
-                    Login.SingInAutor(users);
+                    Login.SignInAuthor(users);
                     break;
                 case ADMIN:
                     System.out.println("Admin login successful!");
@@ -56,7 +56,7 @@ public class Main
                     break;
                 case EXIT:
                     System.out.println("Exiting the application.");
-                    WriteFile.writeUsers(users);
+                    WriteFile.saveUsers(users);
                     WriteFile.saveRecipes(recipes);
                     break;
                 default:

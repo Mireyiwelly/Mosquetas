@@ -6,7 +6,6 @@ package Recipe.classes;
  */
 public class Admin extends User
 {
-
     /**
      * Constructor for Admin class.
      * @param name the name of the admin

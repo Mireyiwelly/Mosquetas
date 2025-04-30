@@ -16,7 +16,7 @@ public class RecipeManagment
      */
     public static void ManageAuthor(List<Recipe> recipes, List<User> users)
     {
-        Author currentUser = Login.LoginAutor(users);
+        Author currentUser = Login.LoginAuthor(users);
         if(currentUser == null)
         {
             return;

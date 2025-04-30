@@ -60,21 +60,18 @@ public class Modify
             switch (choice)
             {
                 case 1:
-                    // Modificar el nombre de la receta
                     System.out.print("Enter new name: ");
                     String newName = sc.nextLine();
                     selectedRecipe.setName(newName);
                     break;
 
                 case 2:
-                    // Modificar la preparación
                     System.out.print("Enter new preparation: ");
                     String newPreparation = sc.nextLine();
                     selectedRecipe.setPreparation(newPreparation);
                     break;
 
                 case 3:
-                    // Modificar el número de comensales
                     System.out.print("Enter new number of diners: ");
                     int newNumDiners = sc.nextInt();
                     sc.nextLine();  //
@@ -82,7 +79,6 @@ public class Modify
                     break;
 
                 case 4:
-                    // Modificar las calorías
                     System.out.print("Enter new number of calories: ");
                     float newCalories = sc.nextFloat();
                     sc.nextLine();
@@ -90,35 +86,31 @@ public class Modify
                     break;
 
                 case 5:
-                    // Modificar el nivel de dificultad
                     System.out.print("Enter new difficulty level: ");
                     char newDifficultyLevel = sc.next().charAt(0);
-                    sc.nextLine();  // Limpiar buffer
+                    sc.nextLine();
                     selectedRecipe.setDifficultyLevel(newDifficultyLevel);
                     break;
 
                 case 6:
-                    // Modificar la dieta especial
                     System.out.print("Enter new special diet: ");
                     String newSpecialDiet = sc.nextLine();
                     selectedRecipe.setSpecialDiet(SpecialDiets.valueOf(newSpecialDiet.toUpperCase()));
                     break;
 
                 case 7:
-                    // Modificar el tiempo de preparación
                     System.out.print("Enter new preparation time: ");
                     int newPreparationTime = sc.nextInt();
-                    sc.nextLine();  // Limpiar buffer
+                    sc.nextLine();
                     selectedRecipe.setPreparationTime(newPreparationTime);
                     break;
 
                 case 8:
-                    // Modificar los ingredientes
                     System.out.println("To modify ingredients, re-enter them.");
                     List<Ingredient> newIngredients = new ArrayList<>();
                     System.out.print("How many ingredients do you want to add? ");
                     int numIngredients = sc.nextInt();
-                    sc.nextLine(); // Limpiar buffer
+                    sc.nextLine();
 
                     for (int i = 0; i < numIngredients; i++)
                     {
@@ -129,19 +121,15 @@ public class Modify
                     break;
 
                 case 0:
-                    // Finalizar
                     System.out.println("Finished updating the recipe.");
                     continueModifying = false;
                     break;
 
                 default:
-                    // Opción no válida
                     System.out.println("Invalid choice, please try again.");
                     break;
             }
 
-            // Dependiendo del tipo de receta, mostrar atributos específicos para modificar
-            // Subtipo: Appetizer
             if (selectedRecipe instanceof Appetizer)
             {
                 boolean continueSubtypeModifying = true;
@@ -177,7 +165,6 @@ public class Modify
                 } while (continueSubtypeModifying);
             }
 
-            // Subtipo: Cocktail
             else if (selectedRecipe instanceof Cocktail)
             {
                 boolean continueSubtypeModifying = true;
@@ -213,7 +200,6 @@ public class Modify
                 } while (continueSubtypeModifying);
             }
 
-            // Subtipo: MainCourse
             else if (selectedRecipe instanceof MainCourse)
             {
                 boolean continueSubtypeModifying = true;
@@ -248,7 +234,6 @@ public class Modify
                 } while (continueSubtypeModifying);
             }
 
-            // Subtipo: Dessert
             else if (selectedRecipe instanceof Dessert)
             {
                 boolean continueSubtypeModifying = true;
@@ -299,7 +284,6 @@ public class Modify
                 } while (continueSubtypeModifying);
             }
 
-            // Preguntar si se desea continuar
             System.out.print("Do you want to update another attribute? (Y/N): ");
             String another = sc.nextLine().trim();
             if (another.equalsIgnoreCase("N")) {
